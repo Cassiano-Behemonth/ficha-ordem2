@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-base="preto" data-accent="laranja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ficha de Dados Graduados</title>
+<meta name="description" content="Ficha de personagem em dados graduados (d4 a d12), feita para usar no celular na horizontal.">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Ficha">
+<link rel="manifest" href="manifest.webmanifest">
+<!-- Navegador -->
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/android/icon-192.png">
+<!-- iPhone e iPad: ícone da tela de início -->
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="icons/ios/apple-touch-icon-57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="icons/ios/apple-touch-icon-60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="icons/ios/apple-touch-icon-72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="icons/ios/apple-touch-icon-76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="icons/ios/apple-touch-icon-114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="icons/ios/apple-touch-icon-120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="icons/ios/apple-touch-icon-144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icons/ios/apple-touch-icon-152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="icons/ios/apple-touch-icon-167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/ios/apple-touch-icon-180.png">
+<!-- iPhone e iPad: telas de abertura do app instalado, em pé e deitado -->
+<!-- iPhone 18 Pro Max, 17 Pro Max, 16 Pro Max -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/apple-splash-1320-2868.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash/apple-splash-2868-1320.png">
+<!-- iPhone 18 Pro, 17 Pro, 17, 16 Pro -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/apple-splash-1206-2622.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash/apple-splash-2622-1206.png">
+<!-- iPhone Air -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/apple-splash-1260-2736.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash/apple-splash-2736-1260.png">
+<!-- iPhone 16 Plus, 15 Plus, 15 Pro Max, 14 Pro Max -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/apple-splash-1290-2796.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash/apple-splash-2796-1290.png">
+<!-- iPhone 16, 15, 15 Pro, 14 Pro -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/apple-splash-1179-2556.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash/apple-splash-2556-1179.png">
+<!-- iPhone 14 Plus, 13 Pro Max, 12 Pro Max -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/apple-splash-1284-2778.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash/apple-splash-2778-1284.png">
+<!-- iPhone 16e, 14, 13, 13 Pro, 12, 12 Pro -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/apple-splash-1170-2532.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash/apple-splash-2532-1170.png">
+<!-- iPhone 13 mini, 12 mini, 11 Pro, XS, X -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/apple-splash-1125-2436.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash/apple-splash-2436-1125.png">
+<!-- iPhone 11 Pro Max, XS Max -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/apple-splash-1242-2688.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash/apple-splash-2688-1242.png">
+<!-- iPhone 11, XR -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/apple-splash-828-1792.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash/apple-splash-1792-828.png">
+<!-- iPhone 8 Plus, 7 Plus, 6s Plus -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/apple-splash-1242-2208.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash/apple-splash-2208-1242.png">
+<!-- iPhone SE (2ª e 3ª geração), 8, 7, 6s -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/apple-splash-750-1334.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash/apple-splash-1334-750.png">
+<!-- iPhone SE (1ª geração), 5s -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/apple-splash-640-1136.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash/apple-splash-1136-640.png">
+<!-- iPad Pro 13" (M4 e posteriores) -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/apple-splash-2064-2752.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash/apple-splash-2752-2064.png">
+<!-- iPad Pro 12,9", iPad Air 13" -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/apple-splash-2048-2732.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash/apple-splash-2732-2048.png">
+<!-- iPad Pro 11" (M4 e posteriores) -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/apple-splash-1668-2420.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash/apple-splash-2420-1668.png">
+<!-- iPad Pro 11" (1ª a 4ª geração) -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/apple-splash-1668-2388.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash/apple-splash-2388-1668.png">
+<!-- iPad Air 10,9" e 11", iPad 10ª e 11ª geração -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/apple-splash-1640-2360.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash/apple-splash-2360-1640.png">
+<!-- iPad Air 10,5", iPad Pro 10,5" -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/apple-splash-1668-2224.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash/apple-splash-2224-1668.png">
+<!-- iPad 10,2" (7ª a 9ª geração) -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/apple-splash-1620-2160.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash/apple-splash-2160-1620.png">
+<!-- iPad 9,7", iPad mini 5, iPad Air 2 -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/apple-splash-1536-2048.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash/apple-splash-2048-1536.png">
+<!-- iPad mini 6 e 7 -->
+<link rel="apple-touch-startup-image" media="screen and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/apple-splash-1488-2266.png">
+<link rel="apple-touch-startup-image" media="screen and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash/apple-splash-2266-1488.png">
+<link rel="preload" href="fonts/im-fell-english-sc-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/alegreya-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"IM Fell English SC";src:url(fonts/im-fell-english-sc-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"IM Fell English";src:url(fonts/im-fell-english-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"IM Fell English";src:url(fonts/im-fell-english-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Alegreya Sans";src:url(fonts/alegreya-sans-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Alegreya Sans";src:url(fonts/alegreya-sans-latin-500-normal.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Alegreya Sans";src:url(fonts/alegreya-sans-latin-700-normal.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+
+:root{
+  /* Layout: cartão com altura fixa de 900 e largura de 1600 a 2300, escalado para caber na tela; perícias à esquerda, atributos e habilidades no meio, retrato à direita.
+     Tema: data-base (preto | branco) define os neutros; data-accent (vermelho | verde | azul | roxo | laranja) define a cor de destaque.
+     Celular em pé: o app inteiro gira 90° para a ficha continuar na horizontal. */
+  --bg:#0a0a0b;
+  --card-base:#141415;
+  --panel-base:#1d1d20;
+  --ink:#eeebe5;
+  --muted:#9b9893;
+  --line:#36343a;
+  --accent:#e2873b;
+  --accent-dim:#7c4b23;
+  --accent-soft:#e6c46a;
+  --blood:#c9573f;
+  --on-accent:#121212;
+  --noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .92 0 0 0 0 .9 0 0 0 0 .86 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --name-glow:0 0 1px rgba(238,235,229,.5),0 6px 40px color-mix(in srgb,var(--accent) 22%,transparent);
+  --card-shadow:0 30px 80px rgba(0,0,0,.55);
+  --cut-shadow:rgba(0,0,0,.5);
+  --halo:30%;
+  --floor:26%;
+  --base-tint:55%;
+  --card:color-mix(in oklab,var(--card-base) 95%,var(--accent));
+  --panel:color-mix(in oklab,var(--panel-base) 93%,var(--accent));
+  --display:"IM Fell English SC","Iowan Old Style",Georgia,serif;
+  --flavor:"IM Fell English","Iowan Old Style",Georgia,serif;
+  --body:"Alegreya Sans","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+:root[data-base="branco"]{
+  --bg:#e4e1dc;
+  --card-base:#fcfbf9;
+  --panel-base:#f2f0ec;
+  --ink:#1c1a18;
+  --muted:#6f6a63;
+  --line:#d4cfc7;
+  --on-accent:#ffffff;
+  --noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .09 0 0 0 0 .08 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --name-glow:0 4px 30px color-mix(in srgb,var(--accent) 14%,transparent);
+  --card-shadow:0 24px 60px rgba(40,30,20,.18);
+  --cut-shadow:rgba(40,30,20,.22);
+  --halo:22%;
+  --floor:16%;
+  --base-tint:28%;
+  --card:color-mix(in oklab,var(--card-base) 97%,var(--accent));
+  --panel:color-mix(in oklab,var(--panel-base) 94%,var(--accent));
+  color-scheme:light;
+}
+:root[data-accent="vermelho"]{--accent:#e0473c;--accent-dim:#7a2420;--accent-soft:#f39a90}
+:root[data-accent="verde"]{--accent:#4fbf6a;--accent-dim:#24603a;--accent-soft:#9be0ab}
+:root[data-accent="azul"]{--accent:#4c8fe8;--accent-dim:#23477a;--accent-soft:#9fc4f6}
+:root[data-accent="roxo"]{--accent:#a46ef0;--accent-dim:#4e2f7a;--accent-soft:#cdaef8}
+:root[data-accent="laranja"]{--accent:#e2873b;--accent-dim:#7c4b23;--accent-soft:#e6c46a}
+:root[data-base="branco"][data-accent="vermelho"]{--accent:#c0281f;--accent-dim:#e8a29d;--accent-soft:#a3211a}
+:root[data-base="branco"][data-accent="verde"]{--accent:#1f8a3e;--accent-dim:#9fd3ae;--accent-soft:#17702f}
+:root[data-base="branco"][data-accent="azul"]{--accent:#1f5fbf;--accent-dim:#a5c2ec;--accent-soft:#184c9a}
+:root[data-base="branco"][data-accent="roxo"]{--accent:#6d34c9;--accent-dim:#c6aef0;--accent-soft:#5a28a8}
+:root[data-base="branco"][data-accent="laranja"]{--accent:#c8620f;--accent-dim:#efbf93;--accent-soft:#a34f0b}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;overflow:hidden;overscroll-behavior:none;background:var(--bg)}
+body{color:var(--ink);font-family:var(--body);-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+button,label.btn{cursor:pointer;touch-action:manipulation}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Moldura do app: respeita o entalhe (notch) e gira quando o celular está em pé */
+#app{
+  --sa-t:env(safe-area-inset-top,0px);--sa-r:env(safe-area-inset-right,0px);--sa-b:env(safe-area-inset-bottom,0px);--sa-l:env(safe-area-inset-left,0px);
+  position:fixed;inset:0;display:flex;flex-direction:column;overflow:hidden;background:var(--bg);
+  padding:var(--sa-t) var(--sa-r) var(--sa-b) var(--sa-l);
+}
+html.rot #app{
+  --sa-t:env(safe-area-inset-right,0px);--sa-r:env(safe-area-inset-bottom,0px);--sa-b:env(safe-area-inset-left,0px);--sa-l:env(safe-area-inset-top,0px);
+  inset:auto;top:0;left:100%;transform:rotate(90deg);transform-origin:top left;
+}
+
+/* Barra */
+.bar{flex:none;position:relative;z-index:30;display:flex;align-items:center;gap:8px 12px;padding:8px 16px;border-bottom:1px solid var(--line);font-size:.9rem}
+.bar-items{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px}
+.row{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.bar select{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:4px 8px;max-width:40vw}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--line);border-radius:4px;padding:4px 10px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.danger:hover{border-color:var(--blood);color:var(--blood)}
+.btn.solid{background:var(--blood);border-color:var(--blood);color:#fff}
+.btn.accent{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn[hidden]{display:none}
+.status{margin-left:auto;display:flex;align-items:center;gap:6px;color:var(--muted)}
+.status::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--muted)}
+.status[data-s="saved"]::before{background:#5fae6e}
+.status[data-s="saving"]::before,.status[data-s="loading"]::before{background:#d9a93c}
+.status[data-s="error"]::before,.status[data-s="slow"]::before{background:var(--blood)}
+.status[data-s="local"]::before{background:#5fae6e}
+.status[data-s="example"]::before{background:var(--accent)}
+.theme{display:flex;align-items:center;gap:10px;padding-left:12px;border-left:1px solid var(--line)}
+.theme-lbl{color:var(--muted)}
+.swatches{display:flex;gap:6px}
+.sw{width:22px;height:22px;border-radius:50%;border:2px solid var(--card);background:var(--swc);padding:0;box-shadow:0 0 0 1px var(--line)}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--ink)}
+.sw:hover{transform:scale(1.12)}
+.seg{display:flex;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.seg button{border:0;background:transparent;padding:3px 10px;color:var(--muted)}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--card-base)}
+.menu-btn{display:none}
+.ios-hint{display:none;margin:0;font-size:.85rem;line-height:1.35;color:var(--muted)}
+.ios-hint.show{display:block}
+
+/* Celular e telas baixas: a barra vira um botão redondo no canto */
+@media (max-width:760px),(max-height:520px){
+  .bar{position:absolute;top:calc(8px + var(--sa-t));right:calc(8px + var(--sa-r));padding:0;border:0;gap:8px;flex-direction:row-reverse}
+  .menu-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;border-radius:50%;font-size:20px;background:color-mix(in srgb,var(--card-base) 82%,transparent);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+  .bar-items{display:none;position:absolute;right:0;top:calc(100% + 6px);width:min(330px,calc(var(--app-w,100vw) - 24px));max-height:calc(var(--app-h,100vh) - 70px);overflow:auto;flex-direction:column;align-items:stretch;gap:12px;padding:14px;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 34px rgba(0,0,0,.45);-webkit-overflow-scrolling:touch}
+  .bar.open .bar-items{display:flex}
+  .bar-items select{max-width:none;width:100%;padding:8px;font-size:16px}
+  .bar-items .btn{flex:1;padding:9px 12px;font-size:15px}
+  .theme{border-left:0;padding-left:0;flex-wrap:wrap}
+  .sw{width:32px;height:32px}
+  .seg button{padding:7px 16px}
+  .status{font-size:0;margin:0;gap:0}
+  .status::before{width:9px;height:9px;box-shadow:0 0 0 2px color-mix(in srgb,var(--card-base) 80%,transparent)}
+  .tip{display:none}
+}
+
+/* Palco que escala o cartão */
+.stage{flex:1;position:relative;overflow:hidden;min-height:0}
+.card{
+  position:absolute;left:50%;top:50%;width:1600px;height:900px;
+  transform:translate(-50%,-50%) scale(var(--s,.5));transform-origin:center;
+  background-color:var(--card);
+  background-image:
+    radial-gradient(ellipse 60% 70% at 30% 0%, color-mix(in srgb,var(--accent) 9%,transparent), transparent 70%),
+    var(--noise);
+  border:1px solid var(--line);border-radius:10px;overflow:hidden;
+  box-shadow:var(--card-shadow);
+  display:grid;grid-template-columns:minmax(640px,1.3fr) minmax(470px,1fr) minmax(490px,1fr);
+}
+
+/* Coluna 1: identidade e perícias */
+.col-a{padding:56px 0 48px 64px;display:flex;flex-direction:column;min-height:0}
+.name{width:100%;background:transparent;border:0;padding:0;font-family:var(--display);font-size:112px;line-height:.95;letter-spacing:.03em;color:var(--ink);text-shadow:var(--name-glow)}
+.name:focus{outline:none}
+.rule{height:3px;width:220px;margin:18px 0 18px;background:linear-gradient(90deg,var(--accent),transparent)}
+.meta{display:flex;align-items:center;gap:18px;font-family:var(--display);letter-spacing:.12em;font-size:26px;color:var(--muted)}
+.meta label{display:flex;align-items:center;gap:10px}
+.lvl{width:2.2em;background:transparent;border:0;border-bottom:1px solid transparent;color:var(--ink);font-family:var(--body);font-weight:700;font-size:26px;text-align:center;font-variant-numeric:tabular-nums;padding:0;-moz-appearance:textfield;appearance:textfield}
+.lvl::-webkit-outer-spin-button,.lvl::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.lvl:hover,.lvl:focus,.occ:hover,.occ:focus{outline:none;border-bottom-color:var(--line)}
+.profile{border:1px solid var(--accent);background:var(--accent);color:var(--on-accent);border-radius:3px;padding:2px 14px;font-family:var(--display);letter-spacing:.12em;font-size:24px}
+.profile.empty{background:transparent;color:var(--muted);border-style:dashed;border-color:var(--line)}
+.occ{min-width:0;flex:1;background:transparent;border:0;border-bottom:1px solid transparent;color:var(--ink);font-family:var(--display);letter-spacing:.12em;font-size:24px;padding:0}
+.occ::placeholder{color:var(--line)}
+.skills{list-style:none;margin:30px 0 0;padding:0 40px 0 0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(10,1fr);grid-auto-flow:column;column-gap:36px;flex:1;min-height:0}
+.sk{display:flex;align-items:center;gap:10px;min-width:0}
+.sk-name{font-family:var(--display);letter-spacing:.08em;font-size:25px;white-space:nowrap}
+.sk.untrained .sk-name{color:var(--muted)}
+.leader{flex:1;min-width:10px;border-bottom:2px dotted var(--line);transform:translateY(8px)}
+
+/* Dados */
+.die-btn{position:relative;border:0;background:none;padding:0;line-height:0;border-radius:6px;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.die-btn::after{content:"";position:absolute;inset:-12px}
+.die-btn:hover .outer{stroke:var(--accent)}
+.die{display:block;width:40px;height:40px}
+.die .outer{fill:color-mix(in srgb,var(--ink) 4%,transparent);stroke:var(--ink);stroke-width:1.7;stroke-linejoin:round}
+.die .inner{fill:none;stroke:var(--ink);stroke-width:.7;opacity:.35;stroke-linejoin:round}
+.die text{fill:var(--ink);font-family:var(--body);font-weight:700;font-size:13px;text-anchor:middle;dominant-baseline:central}
+.d4 .outer{stroke:var(--muted)}
+.d4 text{fill:var(--muted)}
+.d10 .outer,.d12 .outer{stroke:var(--accent)}
+.d10 text,.d12 text{fill:var(--accent)}
+
+/* Coluna 2: atributos e habilidades */
+.col-b{padding:60px 28px 48px 8px;display:flex;flex-direction:column;min-height:0}
+.attrs{display:flex;justify-content:space-around;padding:0 10px 26px;border-bottom:1px solid var(--line)}
+.attr{display:flex;flex-direction:column;align-items:center;gap:8px}
+.attr .die{width:104px;height:104px}
+.attr-name{font-family:var(--display);letter-spacing:.14em;font-size:30px}
+.abilities{flex:0 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;display:flex;flex-direction:column;gap:16px;padding:26px 8px 4px 0;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.ab{position:relative;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px;padding:14px 18px 14px 20px}
+.ab-head{display:flex;align-items:center;gap:12px}
+.ab-title{flex:1;min-width:0;background:transparent;border:0;padding:0;font-family:var(--display);letter-spacing:.1em;font-size:27px;color:var(--ink)}
+.ab-cost{width:5.6em;text-align:center;background:transparent;border:1px solid var(--accent-dim);border-radius:999px;padding:2px 8px;font-size:16px;font-weight:700;letter-spacing:.06em;color:var(--accent-soft)}
+.ab-text{display:block;width:calc(100% - 26px);margin-top:8px;background:transparent;border:0;padding:0;resize:none;overflow:hidden;font-family:var(--flavor);font-size:21px;line-height:1.35;color:var(--ink);min-height:1.4em}
+.ab-title:focus,.ab-cost:focus,.ab-text:focus{outline:none}
+.ab:focus-within{border-color:var(--accent-dim);border-left-color:var(--accent)}
+.ab-del{position:absolute;bottom:8px;right:8px;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:18px;line-height:1;padding:0;opacity:0}
+.ab:hover .ab-del,.ab:focus-within .ab-del{opacity:1}
+.ab-del:hover{color:var(--blood);border-color:var(--blood)}
+.impeto{flex:none;display:flex;align-items:center;gap:22px;padding:22px 4px 0}
+.impeto[hidden]{display:none}
+.imp-lbl{font-family:var(--display);letter-spacing:.14em;font-size:30px}
+.imp-dots{display:flex;gap:16px}
+.imp-dot{width:38px;height:38px;border-radius:50%;border:2px solid var(--accent);background:transparent;padding:0;transition:background .15s,box-shadow .15s}
+.imp-dot.on{background:var(--accent);box-shadow:0 0 16px color-mix(in srgb,var(--accent) 45%,transparent)}
+.imp-dot:hover{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+.add{flex:none;border:1px dashed var(--line);background:transparent;border-radius:4px;padding:12px;color:var(--muted);font-family:var(--display);letter-spacing:.12em;font-size:20px}
+.add:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Coluna 3: retrato */
+.col-c{position:relative;min-height:0;overflow:hidden}
+/* Fundo do retrato: escuro no alto, brilho da cor do tema atrás do personagem e chão tingido; some pela esquerda para fundir com o cartão */
+.col-c::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 46% at 56% 40%, color-mix(in oklab,var(--accent) var(--halo),transparent) 0%, transparent 72%),
+    radial-gradient(ellipse 90% 40% at 55% 100%, color-mix(in oklab,var(--accent) var(--floor),transparent) 0%, transparent 75%),
+    linear-gradient(to bottom, var(--card) 0%, color-mix(in oklab,var(--accent-dim) var(--base-tint),var(--card-base)) 100%);
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 30%);mask-image:linear-gradient(to right,transparent 0,#000 30%)}
+.portrait{position:absolute;inset:0;z-index:1;display:block;cursor:pointer}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(var(--z,1));transform-origin:center top;filter:sepia(.12) contrast(1.04);-webkit-mask-image:linear-gradient(to right,transparent 0,#000 28%);mask-image:linear-gradient(to right,transparent 0,#000 28%)}
+.portrait.alpha img{inset:auto;top:0;left:50%;width:auto;height:calc(var(--z,1)*100%);max-width:none;object-fit:contain;transform:translateX(-50%);-webkit-mask-image:none;mask-image:none;filter:drop-shadow(0 18px 34px var(--cut-shadow))}
+.portrait .empty-p{position:absolute;inset:60px 56px 60px 40px;border:2px dashed var(--line);border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--muted);font-family:var(--display);letter-spacing:.12em;font-size:22px;text-align:center}
+.portrait:hover .empty-p,.col-c:focus-within .empty-p{border-color:var(--accent);color:var(--accent)}
+.p-zoom{position:absolute;right:22px;bottom:22px;z-index:2;display:flex;align-items:center;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--card);opacity:0}
+.col-c:hover .p-zoom,.p-zoom:focus-within{opacity:1}
+.p-zoom button{width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:var(--ink);font-size:22px;line-height:1;padding:0}
+.p-zoom button:hover{background:var(--panel);color:var(--accent)}
+.p-zoom span{min-width:3.4em;text-align:center;font-size:16px;color:var(--muted);font-variant-numeric:tabular-nums}
+.p-zoom .pz-sep{min-width:0;width:1px;height:22px;background:var(--line);margin:0 2px;padding:0}
+.p-zoom .pz-del{color:var(--muted)}
+.p-zoom .pz-del:hover{color:var(--blood)}
+.p-busy{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;font-family:var(--display);letter-spacing:.12em;font-size:22px;color:var(--ink);background:color-mix(in srgb,var(--card) 70%,transparent)}
+.p-zoom[hidden],.p-busy[hidden]{display:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tip{position:absolute;left:64px;bottom:16px;margin:0;font-size:15px;color:var(--muted);font-family:var(--flavor);font-style:italic}
+@media (hover:none){.p-zoom{opacity:1}}
+
+/* Janela e aviso */
+.modal{position:fixed;inset:0;background:rgba(8,7,6,.72);display:flex;align-items:center;justify-content:center;padding:16px;z-index:50}
+.modal[hidden]{display:none}
+.modal-box{width:min(460px,100%);max-height:100%;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px}
+.modal-box h2{margin:0 0 8px;font-family:var(--display);font-weight:400;letter-spacing:.1em}
+.modal-box p{margin:0;color:var(--muted)}
+.modal-box textarea{width:100%;min-height:160px;margin-top:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:8px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:var(--ink)}
+.modal-actions{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:8px;margin-top:16px}
+.toast{position:absolute;left:50%;bottom:calc(14px + var(--sa-b));transform:translateX(-50%);z-index:60;max-width:90%;padding:8px 16px;border-radius:999px;background:var(--panel);border:1px solid var(--line);box-shadow:0 10px 26px rgba(0,0,0,.4);font-size:.92rem;color:var(--ink);pointer-events:none;opacity:0;transition:opacity .2s}
+.toast.show{opacity:1}
+@media (prefers-reduced-motion:reduce){.toast,.imp-dot{transition:none}}
+</style>
+</head>
+<body>
+<div id="app">
+<header class="bar" id="bar">
+  <button class="btn menu-btn" data-act="menu" aria-expanded="false" aria-controls="bar-items" aria-label="Menu" title="Menu">☰</button>
+  <div class="bar-items" id="bar-items">
+    <div class="row">
+      <label for="f-sheet">Ficha</label>
+      <select id="f-sheet"></select>
+    </div>
+    <div class="row">
+      <button class="btn" data-act="sheet-new">Nova ficha</button>
+      <button class="btn danger" data-act="sheet-del">Excluir</button>
+    </div>
+    <div class="row">
+      <button class="btn" data-act="export">Exportar ficha</button>
+      <label class="btn" for="f-import">Importar ficha</label>
+      <input id="f-import" class="sr" type="file" accept=".json,application/json">
+    </div>
+    <div class="theme" role="group" aria-label="Tema da ficha">
+      <span class="theme-lbl">Tema</span>
+      <div class="swatches" id="swatches"></div>
+      <div class="seg" id="bases">
+        <button data-act="base" data-b="preto" aria-pressed="true">Preto</button>
+        <button data-act="base" data-b="branco" aria-pressed="false">Branco</button>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn" data-act="fullscreen" id="btn-fs" hidden>Tela cheia</button>
+      <button class="btn accent" data-act="install" id="btn-install" hidden>Instalar app</button>
+    </div>
+    <p class="ios-hint" id="ios-hint">Para usar como app no iPhone: toque em <b>Compartilhar</b> e depois em <b>Adicionar à Tela de Início</b>.</p>
+  </div>
+  <span id="status" class="status" data-s="loading" role="status">Preparando…</span>
+</header>
+
+<div class="stage" id="stage">
+  <article class="card" id="card" aria-label="Ficha do personagem">
+    <section class="col-a">
+      <label class="sr" for="f-name">Nome do personagem</label>
+      <input id="f-name" class="name" autocomplete="off" spellcheck="false">
+      <div class="rule" aria-hidden="true"></div>
+      <div class="meta">
+        <label for="f-pv">PV: <input id="f-pv" class="lvl" type="number" inputmode="numeric" min="0" max="99"></label>
+        <label for="f-pd">PD: <input id="f-pd" class="lvl" type="number" inputmode="numeric" min="0" max="99"></label>
+        <button id="profile" class="profile" data-act="profile" title="Clique para trocar o perfil"></button>
+        <label class="sr" for="f-occ">Ocupação</label>
+        <input id="f-occ" class="occ" placeholder="ocupação" autocomplete="off">
+      </div>
+      <ul class="skills" id="skills" aria-label="Perícias"></ul>
+      <p class="tip">Toque ou clique no dado para subir um passo · segure o dedo ou use o botão direito para descer</p>
+    </section>
+
+    <section class="col-b">
+      <div class="attrs" id="attrs" aria-label="Atributos"></div>
+      <div class="abilities" id="abilities" aria-label="Habilidades"></div>
+      <div class="impeto" id="impeto" hidden>
+        <span class="imp-lbl" id="imp-lbl">Ímpeto</span>
+        <div class="imp-dots" id="imp-dots" role="group" aria-label="Pontos"></div>
+      </div>
+    </section>
+
+    <section class="col-c">
+      <label class="portrait" for="f-portrait" id="portrait" title="Trocar retrato"></label>
+      <input id="f-portrait" class="sr" type="file" accept="image/*">
+      <div class="p-zoom" id="p-zoom" role="group" aria-label="Tamanho do retrato" hidden>
+        <button data-act="zoom" data-d="-1" aria-label="Diminuir retrato" title="Diminuir">−</button>
+        <span id="p-zoom-v">100%</span>
+        <button data-act="zoom" data-d="1" aria-label="Aumentar retrato" title="Aumentar">+</button>
+        <span class="pz-sep" aria-hidden="true"></span>
+        <button class="pz-del" id="p-clear" data-act="portrait-clear" aria-label="Remover retrato" title="Remover retrato">×</button>
+      </div>
+      <div class="p-busy" id="p-busy" hidden>Carregando retrato…</div>
+    </section>
+  </article>
+</div>
+
+<div id="modal" class="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <h2 id="modal-title"></h2>
+    <div id="modal-body"></div>
+    <div class="modal-actions" id="modal-actions"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script>
+(function(){
+"use strict";
+const STEPS=[4,6,8,10,12];
+const ATTRS=[{k:"fisico",n:"Físico"},{k:"mente",n:"Mente"},{k:"emocao",n:"Emoção"}];
+const PROFILES=["Executor","Analista","Vigilante"];
+const SKILLS=[
+  {k:"acrobacia",n:"Acrobacia"},{k:"adestramento",n:"Adestramento"},{k:"atletismo",n:"Atletismo"},{k:"carisma",n:"Carisma"},
+  {k:"crime",n:"Crime"},{k:"disciplina",n:"Disciplina"},{k:"enganacao",n:"Enganação"},{k:"furtividade",n:"Furtividade"},
+  {k:"inspecionar",n:"Inspecionar"},{k:"intimidar",n:"Intimidar"},{k:"intuicao",n:"Intuição"},{k:"luta",n:"Luta"},
+  {k:"medicina",n:"Medicina"},{k:"ocultismo",n:"Ocultismo"},{k:"percepcao",n:"Percepção"},{k:"pilotagem",n:"Pilotagem"},
+  {k:"pontaria",n:"Pontaria"},{k:"sobrevivencia",n:"Sobrevivência"},{k:"tatica",n:"Tática"},{k:"vigor",n:"Vigor"}
+];
+/* Perícias renomeadas: o dado salvo com o nome antigo passa para o novo */
+const OLD_NAME={adestramento:"animais",pilotagem:"oficio",tatica:"aptidao",ocultismo:"bruxaria"};
+const ACCENTS=[
+  {k:"vermelho",n:"Vermelho",dark:"#e0473c",light:"#c0281f"},
+  {k:"verde",n:"Verde",dark:"#4fbf6a",light:"#1f8a3e"},
+  {k:"azul",n:"Azul",dark:"#4c8fe8",light:"#1f5fbf"},
+  {k:"roxo",n:"Roxo",dark:"#a46ef0",light:"#6d34c9"},
+  {k:"laranja",n:"Laranja",dark:"#e2873b",light:"#c8620f"}
+];
+const BASES=["preto","branco"];
+const LS_KEY="ficha-dados-graduados:v1";
+const IN_CLAUDE=!!(window.claude&&typeof window.claude.use==="function")||(function(){try{return window.self!==window.top;}catch(e){return true;}})();
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const clone=o=>JSON.parse(JSON.stringify(o));
+const newId=()=>"f"+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const clampInt=(v,a,b,f)=>{v=parseInt(v,10);return isNaN(v)?f:Math.max(a,Math.min(b,v));};
+const validDie=(v,f)=>STEPS.includes(Number(v))?Number(v):f;
+const cycle=(d,dir)=>{const i=STEPS.indexOf(d);return STEPS[((i<0?0:i)+dir+STEPS.length)%STEPS.length];};
+
+/* ---------- Dados em SVG ---------- */
+const SHAPES={4:"20,4 37.5,35 2.5,35",8:"20,2 38,20 20,38 2,20",10:"20,2 37,17 20,38 3,17",12:"20,2 38,15 31,37 9,37 2,15"};
+const shape=(n,cls)=>n===6?`<rect class="${cls}" x="5" y="5" width="30" height="30" rx="4"/>`:`<polygon class="${cls}" points="${SHAPES[n]}"/>`;
+function dieSVG(n){
+  const ty=n===4?25.5:(n===10?18.5:20);
+  return `<svg class="die d${n}" viewBox="0 0 40 40" aria-hidden="true">${shape(n,"outer")}<g transform="translate(20 20) scale(.78) translate(-20 -20)">${shape(n,"inner")}</g><text x="20" y="${ty}">${n}</text></svg>`;
+}
+const dieBtn=(kind,k,d,label)=>`<button class="die-btn" data-act="die" data-kind="${kind}" data-k="${k}" aria-label="${esc(label)}: d${d}. Toque para subir um passo, segure para descer" title="d${d}">${dieSVG(d)}</button>`;
+
+/* ---------- Modelo ---------- */
+function blankSheet(){
+  return {kind:"ficha",v:1,id:newId(),name:"Novo personagem",level:1,profile:"",occupation:"",
+    attrs:{fisico:6,mente:6,emocao:6},pv:{cur:10,max:10},pd:{cur:8,max:8},
+    skills:Object.fromEntries(SKILLS.map(s=>[s.k,4])),skillAttr:{},aptSpec:"",
+    abilities:[],notes:"",portrait:"",portraitId:"",portraitKey:"",portraitAlpha:false,portraitZoom:1,
+    impeto:0,analise:0,theme:{accent:"laranja",base:"preto"},example:false,updatedAt:0};
+}
+function exampleSheet(){
+  const s=blankSheet();
+  Object.assign(s,{name:"Brígida Ní Dhonn",level:2,profile:"Analista",occupation:"Curandeira",
+    attrs:{fisico:6,mente:8,emocao:8},example:true});
+  Object.assign(s.skills,{medicina:8,intuicao:8,inspecionar:6,percepcao:6,carisma:6,disciplina:6,adestramento:6,sobrevivencia:6,furtividade:6});
+  s.abilities=[
+    {id:newId(),title:"Mãos Firmes",cost:"1 PD",text:"Depois de rolar Medicina, role de novo o dado de perícia e fique com o melhor resultado."},
+    {id:newId(),title:"Olho de Erveira",cost:"Passiva",text:"Medicina sobe um passo quando você examina plantas, unguentos ou venenos."},
+    {id:newId(),title:"Voz Mansa",cost:"2 PD",text:"Uma vez por cena, acalma uma pessoa ou um animal assustado sem precisar de teste."}
+  ];
+  return s;
+}
+function normalize(o,keepId){
+  const s=blankSheet();
+  if(!o||typeof o!=="object") return s;
+  if(keepId&&o.id) s.id=String(o.id);
+  s.name=String(o.name==null?s.name:o.name).slice(0,80);
+  s.level=clampInt(o.level,0,99,1);
+  s.profile=PROFILES.includes(o.profile)?o.profile:"";
+  s.occupation=String(o.occupation||"").slice(0,60);
+  ATTRS.forEach(a=>{s.attrs[a.k]=validDie(o.attrs&&o.attrs[a.k],6);});
+  const src=o.skills||{};
+  SKILLS.forEach(k=>{const v=(src[k.k]==null&&OLD_NAME[k.k])?src[OLD_NAME[k.k]]:src[k.k];s.skills[k.k]=validDie(v,4);});
+  if(o.skillAttr&&typeof o.skillAttr==="object") s.skillAttr=Object.assign({},o.skillAttr);
+  const pvMax=clampInt(o.pv&&o.pv.max,1,99,10),pdMax=clampInt(o.pd&&o.pd.max,1,99,8);
+  s.pv={max:pvMax,cur:clampInt(o.pv&&o.pv.cur,0,pvMax,pvMax)};
+  s.pd={max:pdMax,cur:clampInt(o.pd&&o.pd.cur,0,pdMax,pdMax)};
+  s.aptSpec=String(o.aptSpec||"").slice(0,30);
+  s.abilities=Array.isArray(o.abilities)?o.abilities.slice(0,40).map(a=>({id:(a&&a.id)?String(a.id):newId(),title:String((a&&a.title)||"").slice(0,60),cost:String((a&&a.cost)||"").slice(0,16),text:String((a&&a.text)||"").slice(0,800)})):[];
+  s.notes=String(o.notes||"").slice(0,6000);
+  s.impeto=clampInt(o.impeto,0,3,0);
+  s.analise=clampInt(o.analise,0,4,0);
+  s.portrait=(typeof o.portrait==="string"&&/^data:image\/(png|jpe?g|webp|gif);base64,/.test(o.portrait)&&o.portrait.length<200000)?o.portrait:"";
+  s.portraitId=(typeof o.portraitId==="string"&&/^[\w.:@+~-]{1,200}$/.test(o.portraitId))?o.portraitId:"";
+  s.portraitKey=(typeof o.portraitKey==="string"&&/^[\w-]{1,80}$/.test(o.portraitKey))?o.portraitKey:"";
+  s.portraitAlpha=!!((s.portrait||s.portraitId||s.portraitKey)&&o.portraitAlpha);
+  s.portraitZoom=Math.max(.5,Math.min(2.5,Number(o.portraitZoom)||1));
+  const th=o.theme||{};
+  s.theme={accent:ACCENTS.some(a=>a.k===th.accent)?th.accent:"laranja",base:BASES.includes(th.base)?th.base:"preto"};
+  s.example=!!o.example;
+  s.updatedAt=Number(o.updatedAt)||0;
+  return s;
+}
+
+/* ---------- Retratos guardados no aparelho (IndexedDB), em qualidade alta ---------- */
+const IDB_NAME="ficha-dados-graduados",IDB_STORE="retratos";
+let idbP=null;
+function idb(){
+  if(!idbP){
+    idbP=new Promise((res,rej)=>{
+      try{
+        const r=indexedDB.open(IDB_NAME,1);
+        r.onupgradeneeded=()=>{r.result.createObjectStore(IDB_STORE);};
+        r.onsuccess=()=>res(r.result);
+        r.onerror=()=>rej(r.error);
+      }catch(e){rej(e);}
+    });
+    idbP.catch(()=>{});
+  }
+  return idbP;
+}
+async function idbPut(key,val){
+  const d=await idb();
+  await new Promise((res,rej)=>{const tx=d.transaction(IDB_STORE,"readwrite");tx.objectStore(IDB_STORE).put(val,key);tx.oncomplete=()=>res();tx.onerror=()=>rej(tx.error);tx.onabort=()=>rej(tx.error);});
+}
+async function idbGet(key){
+  const d=await idb();
+  return new Promise((res,rej)=>{const tx=d.transaction(IDB_STORE,"readonly");const q=tx.objectStore(IDB_STORE).get(key);q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error);});
+}
+async function idbDel(key){
+  if(!key) return;
+  try{const d=await idb();await new Promise(res=>{const tx=d.transaction(IDB_STORE,"readwrite");tx.objectStore(IDB_STORE).delete(key);tx.oncomplete=res;tx.onerror=res;tx.onabort=res;});}catch(e){}
+}
+const localUrls={};
+async function loadLocalPortrait(key){
+  if(localUrls[key]) return true;
+  try{const v=await idbGet(key);if(v&&v.blob){localUrls[key]=URL.createObjectURL(v.blob);return true;}}catch(e){}
+  return false;
+}
+
+/* ---------- Estado e salvamento ---------- */
+let sheets={},cur=null,store="pending",dbRef=null,uid=null;
+const touched=new Set(),dirty=new Set(),knownRemote=new Set();
+let inflight=false,again=false,saveTimer=null;
+const STATUS={pending:"Preparando…",loading:"Carregando suas fichas…",saving:"Salvando…",saved:"Salvo na sua conta (só você vê)",local:"Salvo neste aparelho",example:"Exemplo: edite para salvar",slow:"Não consegui alcançar o salvamento ainda",none:"Este navegador não guarda dados: use Exportar"};
+function setStatus(s,msg){const el=$("#status");el.dataset.s=s;el.textContent=msg||STATUS[s]||"";el.title=el.textContent;}
+function idleStatus(){
+  if(cur&&cur.example&&!touched.has(cur.id)) return setStatus("example");
+  setStatus(store==="db"?"saved":store==="local"?"local":store==="none"?"none":"pending");
+}
+let toastT=null;
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("show"),2600);}
+function touch(){
+  if(!cur) return;
+  const wasEx=cur.example&&!touched.has(cur.id);
+  touched.add(cur.id);cur.example=false;
+  if(wasEx) renderBar();
+  dirty.add(cur.id);
+  if(store==="pending") return;
+  setStatus("saving","Alterações pendentes…");
+  clearTimeout(saveTimer);saveTimer=setTimeout(flush,600);
+}
+function saveLocal(){
+  try{
+    const keep={};
+    Object.values(sheets).forEach(s=>{if(!(s.example&&!touched.has(s.id))) keep[s.id]=s;});
+    localStorage.setItem(LS_KEY,JSON.stringify({sheets:keep,current:cur&&cur.id}));
+    return true;
+  }catch(e){return false;}
+}
+async function writeDoc(id,body){
+  const ref=dbRef.collection("data/users/"+uid).doc(id);
+  try{await ref.set(body);}
+  catch(e){if(e&&e.code==="unavailable"){await new Promise(r=>setTimeout(r,600+Math.random()*900));await ref.set(body);}else throw e;}
+  knownRemote.add(id);
+}
+async function flush(){
+  if(store==="pending") return;
+  if(inflight){again=true;return;}
+  if(!dirty.size){idleStatus();return;}
+  inflight=true;setStatus("saving");
+  const ids=[...dirty];dirty.clear();
+  let failed=null;
+  for(const id of ids){
+    const s=sheets[id];if(!s) continue;
+    s.updatedAt=Date.now();
+    const body=clone(s);
+    try{
+      if(store==="db"){if(JSON.stringify(body).length>250000) throw {code:"too_big"};await writeDoc(id,body);}
+      else if(store==="local"){if(!saveLocal()) throw {code:"local_full"};}
+    }catch(e){failed=e;dirty.add(id);}
+  }
+  inflight=false;
+  if(failed){
+    const c=failed.code;
+    if(c==="too_big") setStatus("error","Ficha grande demais: use um retrato menor");
+    else if(c==="quota_exceeded") setStatus("error","Espaço de salvamento cheio: exclua fichas antigas");
+    else if(c==="invalid_argument"&&store==="db"){store="local";if(saveLocal()){dirty.clear();setStatus("local","Sem permissão para salvar na conta: salvo neste aparelho");}else setStatus("none");}
+    else if(c==="local_full") setStatus("error","O aparelho não aceitou salvar: use Exportar");
+    else setStatus("error","Não salvou: tente de novo em instantes");
+    return;
+  }
+  if(again||dirty.size){again=false;saveTimer=setTimeout(flush,300);return;}
+  idleStatus();
+}
+function useLocal(){
+  let data=null;
+  try{const raw=localStorage.getItem(LS_KEY);data=raw?JSON.parse(raw):null;store="local";}catch(e){store="none";}
+  if(data&&data.sheets&&Object.keys(data.sheets).length){
+    const loaded={};
+    Object.values(data.sheets).forEach(o=>{const s=normalize(o,true);loaded[s.id]=s;});
+    const keep=cur&&touched.has(cur.id);
+    if(keep) loaded[cur.id]=cur;
+    sheets=loaded;
+    if(!keep) cur=loaded[data.current]||Object.values(loaded)[0];
+  }
+  renderAll();
+  if(dirty.size) flush();
+}
+function applyRemote(snap,first){
+  const remote={};
+  snap.docs.forEach(d=>{const b=d.data();if(b&&b.kind==="ficha"){const s=normalize(Object.assign({},b,{id:d.id}),true);remote[d.id]=s;}});
+  const newest=()=>Object.values(remote).sort((a,b)=>b.updatedAt-a.updatedAt)[0];
+  if(first){
+    Object.keys(remote).forEach(id=>knownRemote.add(id));
+    if(Object.keys(remote).length){
+      const keep=cur&&touched.has(cur.id);
+      const next=Object.assign({},remote);
+      if(keep) next[cur.id]=cur;
+      sheets=next;
+      if(!keep) cur=newest();
+    }
+    renderAll();
+    if(dirty.size) flush();
+    return;
+  }
+  let changed=false;
+  if(cur&&cur.example&&!touched.has(cur.id)&&Object.keys(remote).length){
+    delete sheets[cur.id];cur=newest();sheets[cur.id]=cur;changed=true;
+  }
+  Object.keys(remote).forEach(id=>{
+    knownRemote.add(id);
+    if(cur&&id===cur.id){
+      if(!dirty.has(id)&&!inflight&&remote[id].updatedAt>(cur.updatedAt||0)){sheets[id]=remote[id];cur=remote[id];changed=true;}
+    }else if(!dirty.has(id)) sheets[id]=remote[id];
+  });
+  Object.keys(sheets).forEach(id=>{if(knownRemote.has(id)&&!remote[id]&&(!cur||id!==cur.id)){delete sheets[id];knownRemote.delete(id);}});
+  if(changed) renderAll(); else renderBar();
+}
+/* Dentro do Claude: salvamento na conta. No GitHub Pages ou instalado: salvamento no aparelho. */
+async function initStore(){
+  const C=window.claude;
+  if(!C||typeof C.use!=="function"){useLocal();return;}
+  let db=null,user=null,id=null;
+  try{[db,user]=await Promise.all([C.use("db"),C.use("user")]);}catch(e){}
+  try{id=user&&typeof user.id==="function"?await user.id():null;}catch(e){}
+  if(!db||!id){useLocal();return;}
+  dbRef=db;uid=id;store="db";setStatus("loading");
+  let first=true;
+  const timer=setTimeout(()=>{if(first) setStatus("slow");},10000);
+  try{
+    db.collection("data/users/"+uid).onSnapshot(snap=>{
+      if(!snap.metadata.fromCache) clearTimeout(timer);
+      const wasFirst=first;first=false;applyRemote(snap,wasFirst);
+    },()=>{
+      clearTimeout(timer);
+      if(first){first=false;useLocal();setStatus("local","Não deu para abrir o salvamento da conta: salvo neste aparelho");}
+      else setStatus("error","Conexão com o salvamento perdida: recarregue a página");
+    });
+  }catch(e){clearTimeout(timer);useLocal();}
+}
+
+/* ---------- Render ---------- */
+function renderBar(){
+  const list=Object.values(sheets).sort((a,b)=>a.name.localeCompare(b.name,"pt-BR"));
+  $("#f-sheet").innerHTML=list.map(s=>`<option value="${esc(s.id)}" ${cur&&s.id===cur.id?"selected":""}>${esc(s.name||"Sem nome")}${s.example&&!touched.has(s.id)?" (exemplo)":""}</option>`).join("");
+}
+function fitName(){
+  const el=$("#f-name");let size=112;el.style.fontSize=size+"px";
+  while(el.scrollWidth>el.clientWidth+1&&size>54){size-=4;el.style.fontSize=size+"px";}
+}
+function renderProfile(){
+  const b=$("#profile");b.textContent=cur.profile||"perfil";b.classList.toggle("empty",!cur.profile);
+  b.setAttribute("aria-label","Perfil: "+(cur.profile||"nenhum")+". Toque para trocar");
+}
+function renderAttrs(){
+  $("#attrs").innerHTML=ATTRS.map(a=>`<div class="attr">${dieBtn("attr",a.k,cur.attrs[a.k],a.n)}<span class="attr-name">${a.n}</span></div>`).join("");
+}
+function renderSkills(){
+  $("#skills").innerHTML=SKILLS.map(sk=>{
+    const d=cur.skills[sk.k];
+    return `<li class="sk ${d===4?"untrained":""}"><span class="sk-name">${esc(sk.n)}</span><span class="leader" aria-hidden="true"></span>${dieBtn("skill",sk.k,d,sk.n)}</li>`;
+  }).join("");
+}
+const MAX_AB=3;
+const fold=t=>String(t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+/* Analista não ganha Ímpeto: ganha Análise, com 4 pontos. O contador aparece quando alguma habilidade cita a palavra. */
+function tracker(){
+  return cur.profile==="Analista"
+    ?{key:"analise",label:"Análise",max:4,words:/impeto|analis/}
+    :{key:"impeto",label:"Ímpeto",max:3,words:/impeto/};
+}
+function renderImpeto(){
+  const t=tracker();
+  const show=cur.abilities.some(a=>t.words.test(fold(a.title+" "+a.text+" "+a.cost)));
+  $("#impeto").hidden=!show;
+  if(!show) return;
+  const v=cur[t.key]||0;
+  $("#imp-lbl").textContent=t.label;
+  $("#imp-dots").setAttribute("aria-label","Pontos de "+t.label);
+  let h="";
+  for(let i=0;i<t.max;i++) h+=`<button class="imp-dot ${i<v?"on":""}" data-act="impeto" data-i="${i}" aria-pressed="${i<v}" aria-label="${t.label} ${i+1}"></button>`;
+  $("#imp-dots").innerHTML=h;
+}
+function renderAbilities(){
+  $("#abilities").innerHTML=cur.abilities.map(a=>`<article class="ab" data-id="${esc(a.id)}">
+    <div class="ab-head">
+      <input class="ab-title" data-f="title" value="${esc(a.title)}" placeholder="Nome da habilidade" aria-label="Nome da habilidade">
+      <input class="ab-cost" data-f="cost" value="${esc(a.cost)}" placeholder="custo" aria-label="Custo ou Passiva">
+    </div>
+    <textarea class="ab-text" data-f="text" rows="1" placeholder="O que ela faz" aria-label="Descrição da habilidade">${esc(a.text)}</textarea>
+    <button class="ab-del" data-act="ab-del" data-id="${esc(a.id)}" aria-label="Apagar habilidade ${esc(a.title)}" title="Apagar habilidade">×</button>
+  </article>`).join("")+(cur.abilities.length<MAX_AB?`<button class="add" data-act="ab-add">+ Habilidade</button>`:"");
+  document.querySelectorAll(".ab-text").forEach(grow);
+  renderImpeto();
+}
+const EMPTY_P=`<span class="empty-p"><svg width="96" height="110" viewBox="0 0 96 110" aria-hidden="true"><path d="M48 8c13 0 22 10 22 24s-9 26-22 26-22-12-22-26S35 8 48 8zM6 108c2-28 19-44 42-44s40 16 42 44" fill="none" stroke="currentColor" stroke-width="2"/></svg>Toque para<br>adicionar retrato</span>`;
+const urlCache={};
+function portraitSrc(s){
+  if(s.portraitKey) return localUrls[s.portraitKey]||"";
+  if(s.portraitId) return urlCache[s.portraitId]||("/_blob/"+encodeURIComponent(s.portraitId));
+  return s.portrait||"";
+}
+function renderPortrait(){
+  const s=cur,box=$("#portrait"),src=portraitSrc(s);
+  if(!src&&s.portraitKey){
+    box.innerHTML="";$("#p-zoom").hidden=true;
+    loadLocalPortrait(s.portraitKey).then(ok=>{
+      if(cur!==s) return;
+      if(ok) renderPortrait();
+      else{s.portraitKey="";s.portraitAlpha=false;renderPortrait();}
+    });
+    return;
+  }
+  box.innerHTML=src?`<img src="${esc(src)}" alt="Retrato de ${esc(s.name)}">`:EMPTY_P;
+  box.classList.toggle("alpha",!!(src&&s.portraitAlpha));
+  box.style.setProperty("--z",s.portraitZoom||1);
+  const img=box.querySelector("img");
+  if(img) img.addEventListener("error",()=>{box.classList.remove("alpha");box.innerHTML=`<span class="empty-p">Retrato indisponível.<br>Envie de novo.</span>`;},{once:true});
+  $("#p-zoom").hidden=!src;
+  $("#p-zoom-v").textContent=Math.round((s.portraitZoom||1)*100)+"%";
+}
+function renderTheme(){
+  const t=cur.theme,root=document.documentElement;
+  root.dataset.base=t.base;root.dataset.accent=t.accent;
+  $("#swatches").innerHTML=ACCENTS.map(a=>`<button class="sw" data-act="accent" data-a="${a.k}" style="--swc:${t.base==="branco"?a.light:a.dark}" aria-pressed="${t.accent===a.k}" aria-label="${a.n}" title="${a.n}"></button>`).join("");
+  document.querySelectorAll("#bases button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.b===t.base)));
+  const meta=document.querySelector('meta[name="theme-color"]');
+  if(meta) meta.setAttribute("content",t.base==="branco"?"#e4e1dc":"#0a0a0b");
+}
+function renderAll(){
+  renderTheme();
+  renderBar();
+  $("#f-name").value=cur.name;
+  $("#f-pd").value=cur.pd.cur;
+  $("#f-pv").value=cur.pv.cur;
+  $("#f-occ").value=cur.occupation;
+  renderProfile();renderAttrs();renderSkills();renderAbilities();renderPortrait();
+  fitName();idleStatus();
+}
+function grow(el){el.style.height="auto";el.style.height=el.scrollHeight+"px";}
+
+/* ---------- Tamanho na tela ---------- */
+/* Celular em pé (tela estreita e de toque): o app gira 90° para a ficha ficar na horizontal. */
+const rotMQ=window.matchMedia?window.matchMedia("(orientation: portrait) and (max-width: 600px) and (pointer: coarse)"):null;
+function layoutApp(){
+  const vw=window.innerWidth,vh=window.innerHeight,app=$("#app");
+  const rot=!!(rotMQ&&rotMQ.matches);
+  document.documentElement.classList.toggle("rot",rot);
+  if(rot){app.style.width=vh+"px";app.style.height=vw+"px";}
+  else{app.style.width="";app.style.height="";}
+  app.style.setProperty("--app-w",(rot?vh:vw)+"px");
+  app.style.setProperty("--app-h",(rot?vw:vh)+"px");
+  scaleCard();
+}
+/* A altura do cartão é sempre 900; a largura acompanha a tela (de 1600 a 2300) para não sobrar faixa vazia dos lados */
+function scaleCard(){
+  const st=$("#stage"),card=$("#card"),pad=st.clientWidth<900?6:24;
+  const aw=Math.max(1,st.clientWidth-pad),ah=Math.max(1,st.clientHeight-pad);
+  const W=Math.round(Math.max(1600,Math.min(2300,900*aw/ah)));
+  card.style.width=W+"px";
+  const s=Math.min(aw/W,ah/900);
+  card.style.setProperty("--s",Math.max(.12,s).toFixed(4));
+  fitName();
+}
+if(window.ResizeObserver) new ResizeObserver(scaleCard).observe($("#stage"));
+window.addEventListener("resize",layoutApp);
+window.addEventListener("orientationchange",()=>setTimeout(layoutApp,250));
+if(window.visualViewport) window.visualViewport.addEventListener("resize",layoutApp);
+if(rotMQ){if(rotMQ.addEventListener) rotMQ.addEventListener("change",layoutApp); else if(rotMQ.addListener) rotMQ.addListener(layoutApp);}
+
+/* ---------- Ações ---------- */
+function changeDie(b,dir){
+  const kind=b.dataset.kind,k=b.dataset.k;
+  if(kind==="attr"){cur.attrs[k]=cycle(cur.attrs[k],dir);renderAttrs();}
+  else{cur.skills[k]=cycle(cur.skills[k],dir);renderSkills();}
+  const again=document.querySelector(`[data-act="die"][data-kind="${kind}"][data-k="${k}"]`);
+  if(again) again.focus({preventScroll:true});
+  touch();
+}
+/* No celular: toque sobe um passo; segurar o dedo ~0,45 s desce um passo */
+let lpTimer=null,lpBtn=null,lpFired=false,lpX=0,lpY=0;
+function lpCancel(){clearTimeout(lpTimer);lpTimer=null;lpBtn=null;}
+document.addEventListener("pointerdown",e=>{
+  if(e.pointerType==="mouse") return;
+  const b=e.target.closest('[data-act="die"]');if(!b) return;
+  lpFired=false;lpBtn=b;lpX=e.clientX;lpY=e.clientY;
+  clearTimeout(lpTimer);
+  lpTimer=setTimeout(()=>{
+    if(!lpBtn) return;
+    lpFired=true;changeDie(lpBtn,-1);lpBtn=null;
+    try{if(navigator.vibrate) navigator.vibrate(15);}catch(err){}
+  },450);
+});
+document.addEventListener("pointermove",e=>{if(lpBtn&&Math.hypot(e.clientX-lpX,e.clientY-lpY)>12) lpCancel();});
+document.addEventListener("pointerup",lpCancel);
+document.addEventListener("pointercancel",lpCancel);
+function dropUntouchedExample(){if(cur&&cur.example&&!touched.has(cur.id)) delete sheets[cur.id];}
+function toggleMenu(force){
+  const bar=$("#bar"),open=force==null?!bar.classList.contains("open"):force;
+  bar.classList.toggle("open",open);
+  $(".menu-btn").setAttribute("aria-expanded",String(open));
+}
+function openModal(title,bodyHTML,actionsHTML){
+  $("#modal-title").textContent=title;
+  $("#modal-body").innerHTML=bodyHTML;
+  $("#modal-actions").innerHTML=actionsHTML;
+  $("#modal").hidden=false;
+  const f=$("#modal-actions .btn");if(f) f.focus();
+}
+function closeModal(){$("#modal").hidden=true;}
+async function clearPortrait(s){
+  if(s.portraitKey){const k=s.portraitKey;if(localUrls[k]){URL.revokeObjectURL(localUrls[k]);delete localUrls[k];}idbDel(k);}
+  s.portrait="";s.portraitId="";s.portraitKey="";s.portraitAlpha=false;
+}
+document.addEventListener("click",async e=>{
+  const bar=$("#bar");
+  if(bar.classList.contains("open")&&!e.target.closest("#bar")) toggleMenu(false);
+  const b=e.target.closest("[data-act]");if(!b) return;
+  switch(b.dataset.act){
+    case "die":
+      if(lpFired){lpFired=false;break;}
+      changeDie(b,1);break;
+    case "menu": toggleMenu();break;
+    case "profile":{
+      const i=PROFILES.indexOf(cur.profile);cur.profile=i===PROFILES.length-1?"":PROFILES[i+1];
+      renderProfile();renderImpeto();touch();break;}
+    case "accent":
+      if(cur.theme.accent!==b.dataset.a){cur.theme.accent=b.dataset.a;renderTheme();touch();}
+      break;
+    case "base":
+      if(cur.theme.base!==b.dataset.b){cur.theme.base=b.dataset.b;renderTheme();touch();}
+      break;
+    case "impeto":{
+      const t=tracker(),i=Number(b.dataset.i),v=cur[t.key]||0;cur[t.key]=(v===i+1)?i:i+1;renderImpeto();touch();break;}
+    case "ab-add":
+      if(cur.abilities.length>=MAX_AB) break;
+      cur.abilities.push({id:newId(),title:"",cost:"",text:""});renderAbilities();touch();
+      {const t=document.querySelectorAll(".ab-title");if(t.length){t[t.length-1].focus();t[t.length-1].scrollIntoView({block:"nearest"});}}
+      break;
+    case "ab-del": cur.abilities=cur.abilities.filter(a=>a.id!==b.dataset.id);renderAbilities();touch();break;
+    case "portrait-clear": await clearPortrait(cur);cur.portraitZoom=1;renderPortrait();touch();break;
+    case "zoom":{
+      const z=Math.round(((cur.portraitZoom||1)+Number(b.dataset.d)*.1)*10)/10;
+      cur.portraitZoom=Math.max(.5,Math.min(2.5,z));
+      $("#portrait").style.setProperty("--z",cur.portraitZoom);
+      $("#p-zoom-v").textContent=Math.round(cur.portraitZoom*100)+"%";
+      touch();break;}
+    case "sheet-new":{
+      toggleMenu(false);
+      dropUntouchedExample();
+      const s=blankSheet();s.theme=clone(cur.theme);sheets[s.id]=s;cur=s;touched.add(s.id);renderAll();touch();
+      $("#f-name").select();break;}
+    case "sheet-del":
+      toggleMenu(false);
+      openModal("Excluir ficha",`<p>Excluir a ficha “${esc(cur.name||"Sem nome")}”? Não dá para desfazer. Se quiser guardar uma cópia, use Exportar antes.</p>`,
+        `<button class="btn" data-act="modal-close">Cancelar</button><button class="btn solid" data-act="confirm-del">Excluir ficha</button>`);
+      break;
+    case "confirm-del":{
+      const s=cur,id=s.id;closeModal();
+      try{if(store==="db"&&knownRemote.has(id)) await dbRef.collection("data/users/"+uid).doc(id).delete();}
+      catch(err){setStatus("error","Não consegui excluir: tente de novo");break;}
+      if(s.portraitKey) await clearPortrait(s);
+      knownRemote.delete(id);dirty.delete(id);touched.delete(id);delete sheets[id];
+      const rest=Object.values(sheets);
+      if(rest.length) cur=rest.sort((a,b)=>b.updatedAt-a.updatedAt)[0];
+      else{const ex=exampleSheet();sheets[ex.id]=ex;cur=ex;}
+      if(store==="local") saveLocal();
+      renderAll();break;}
+    case "export": toggleMenu(false);exportSheet();break;
+    case "copy-json":{
+      const ta=$("#exp-text");
+      try{await navigator.clipboard.writeText(ta.value);toast("Ficha copiada");}
+      catch(err){ta.focus();ta.select();toast("Texto selecionado: copie com Ctrl+C");}
+      break;}
+    case "fullscreen": toggleMenu(false);toggleFullscreen();break;
+    case "install":
+      toggleMenu(false);
+      if(installPrompt){installPrompt.prompt();installPrompt.userChoice.finally(()=>{installPrompt=null;$("#btn-install").hidden=true;});}
+      break;
+    case "modal-close": closeModal();break;
+  }
+});
+document.addEventListener("contextmenu",e=>{
+  const b=e.target.closest('[data-act="die"]');
+  if(!b) return;
+  e.preventDefault();
+  if(lpBtn||lpFired) return; /* no toque, quem desce é o segurar */
+  changeDie(b,-1);
+});
+document.addEventListener("input",e=>{
+  const t=e.target;if(!cur) return;
+  if(t.id==="f-name"){cur.name=t.value.slice(0,80);fitName();touch();clearTimeout(t._r);t._r=setTimeout(renderBar,400);}
+  else if(t.id==="f-pv"){const v=clampInt(t.value,0,99,cur.pv.cur);cur.pv.cur=v;cur.pv.max=Math.max(cur.pv.max,v);touch();}
+  else if(t.id==="f-pd"){const v=clampInt(t.value,0,99,cur.pd.cur);cur.pd.cur=v;cur.pd.max=Math.max(cur.pd.max,v);touch();}
+  else if(t.id==="f-occ"){cur.occupation=t.value.slice(0,60);touch();}
+  else if(t.dataset.f){
+    const card=t.closest(".ab"),ab=card&&cur.abilities.find(a=>a.id===card.dataset.id);
+    if(ab){ab[t.dataset.f]=t.value.slice(0,t.dataset.f==="text"?800:60);touch();renderImpeto();}
+    if(t.tagName==="TEXTAREA") grow(t);
+  }
+});
+document.addEventListener("change",async e=>{
+  const t=e.target;
+  if(t.id==="f-sheet"){
+    toggleMenu(false);
+    if(!sheets[t.value]||t.value===cur.id) return;
+    dropUntouchedExample();cur=sheets[t.value];renderAll();if(store==="local") saveLocal();
+  }else if(t.id==="f-portrait"&&t.files&&t.files[0]){
+    const file=t.files[0];t.value="";
+    const target=cur;
+    await setPortrait(target,file,1);
+    if(target===cur) renderPortrait();
+    touch();
+  }else if(t.id==="f-import"&&t.files&&t.files[0]){
+    const file=t.files[0];t.value="";
+    toggleMenu(false);
+    importSheet(file);
+  }
+});
+document.addEventListener("keydown",e=>{
+  if(e.key!=="Escape") return;
+  if(!$("#modal").hidden) closeModal(); else if($("#bar").classList.contains("open")) toggleMenu(false);
+});
+$("#modal").addEventListener("click",e=>{if(e.target.id==="modal") closeModal();});
+window.addEventListener("pagehide",()=>{if(dirty.size) flush();});
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden"&&dirty.size) flush();});
+
+/* ---------- Retrato: guardar em qualidade alta ---------- */
+/* No Claude vai como arquivo da conta; fora dele fica no próprio aparelho (IndexedDB). Se nada disso der, vira uma cópia reduzida dentro da ficha. */
+async function setPortrait(target,file,zoom){
+  $("#p-busy").hidden=false;
+  try{
+    let done=false,alpha=false;
+    let hq=null;
+    try{hq=await prepareHQ(file);alpha=hq.alpha;}catch(err){hq=null;}
+    if(hq&&store==="db"){
+      const assets=await getAssets();
+      if(assets){
+        try{
+          const r=await assets.upload(hq.blob);
+          if(r&&r.id){await clearPortrait(target);urlCache[r.id]=r.url||("/_blob/"+encodeURIComponent(r.id));target.portraitId=r.id;done=true;}
+        }catch(err){}
+      }
+    }
+    if(hq&&!done&&store!=="db"){
+      try{
+        const key="p-"+newId();
+        await idbPut(key,{blob:hq.blob,alpha:hq.alpha});
+        await clearPortrait(target);
+        target.portraitKey=key;localUrls[key]=URL.createObjectURL(hq.blob);done=true;
+      }catch(err){}
+    }
+    if(!done){
+      const p=await shrink(file);
+      await clearPortrait(target);
+      target.portrait=p.data;alpha=p.alpha;
+      if(store==="db") setTimeout(()=>toast("Retrato salvo em qualidade menor"),400);
+    }
+    target.portraitAlpha=alpha;
+    target.portraitZoom=zoom||1;
+    return true;
+  }catch(err){toast("Não consegui ler essa imagem");return false;}
+  finally{$("#p-busy").hidden=true;}
+}
+const LIMIT=180000;
+function hasAlpha(ctx,w,h){
+  const d=ctx.getImageData(0,0,w,h).data;
+  for(let i=3;i<d.length;i+=16){if(d[i]<250) return true;}
+  return false;
+}
+function encode(c,alpha){
+  if(!alpha){
+    let q=.82,out=c.toDataURL("image/jpeg",q);
+    while(out.length>LIMIT&&q>.35){q-=.12;out=c.toDataURL("image/jpeg",q);}
+    return out;
+  }
+  let q=.86,out=c.toDataURL("image/webp",q);
+  if(out.indexOf("data:image/webp")===0){
+    while(out.length>LIMIT&&q>.35){q-=.12;out=c.toDataURL("image/webp",q);}
+    return out;
+  }
+  return c.toDataURL("image/png");
+}
+let assetsP=null;
+function getAssets(){
+  if(!assetsP){
+    const C=window.claude;
+    assetsP=(C&&typeof C.use==="function")?Promise.resolve(C.use("assets")).catch(()=>null):Promise.resolve(null);
+  }
+  return assetsP;
+}
+function loadImg(url){return new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=rej;i.src=url;});}
+function toBlob(c,type,q){return new Promise(res=>c.toBlob(b=>res(b),type,q));}
+/* Versão em alta: mantém o original se já for leve; senão reduz para até 2000 px */
+async function prepareHQ(file){
+  const url=URL.createObjectURL(file);
+  try{
+    const img=await loadImg(url);
+    const W=img.naturalWidth||img.width,H=img.naturalHeight||img.height,maxDim=Math.max(W,H);
+    let alpha=false;
+    if(/png|webp|gif|svg/i.test(file.type||"")){
+      const sc=Math.min(1,400/maxDim),w=Math.max(1,Math.round(W*sc)),h=Math.max(1,Math.round(H*sc));
+      const c=document.createElement("canvas");c.width=w;c.height=h;const ctx=c.getContext("2d");ctx.drawImage(img,0,0,w,h);
+      alpha=hasAlpha(ctx,w,h);
+    }
+    if(/^image\/(png|jpe?g|webp|gif)$/i.test(file.type||"")&&file.size<=6*1024*1024&&maxDim<=2400) return {blob:file,alpha};
+    const sc=Math.min(1,2000/maxDim),w=Math.max(1,Math.round(W*sc)),h=Math.max(1,Math.round(H*sc));
+    const c=document.createElement("canvas");c.width=w;c.height=h;c.getContext("2d").drawImage(img,0,0,w,h);
+    let blob=alpha?await toBlob(c,"image/webp",.92):await toBlob(c,"image/jpeg",.9);
+    if(alpha&&(!blob||blob.type!=="image/webp")) blob=await toBlob(c,"image/png");
+    if(!blob) throw new Error("sem imagem");
+    return {blob,alpha};
+  }finally{URL.revokeObjectURL(url);}
+}
+async function shrink(file){
+  const url=URL.createObjectURL(file);
+  try{
+    const img=await loadImg(url);
+    const maybeAlpha=/png|webp|gif|svg/i.test(file.type||"");
+    let alpha=false,out="";
+    for(const max of [900,760,620,500,400,300,220]){
+      const sc=Math.min(1,max/Math.max(img.width,img.height));
+      const w=Math.max(1,Math.round(img.width*sc)),h=Math.max(1,Math.round(img.height*sc));
+      const c=document.createElement("canvas");c.width=w;c.height=h;
+      const ctx=c.getContext("2d");ctx.drawImage(img,0,0,w,h);
+      if(max===900) alpha=maybeAlpha&&hasAlpha(ctx,w,h);
+      out=encode(c,alpha);
+      if(out.length<=LIMIT) break;
+    }
+    return {data:out,alpha:alpha};
+  }finally{URL.revokeObjectURL(url);}
+}
+
+/* ---------- Exportar e importar (para levar a ficha a outro aparelho) ---------- */
+function blobToDataURL(b){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=()=>rej(r.error);r.readAsDataURL(b);});}
+function dataURLtoBlob(u){
+  const m=/^data:([^;,]+);base64,(.*)$/.exec(u||"");if(!m) return null;
+  const bin=atob(m[2]),arr=new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i);
+  return new Blob([arr],{type:m[1]});
+}
+function fileSlug(n){return (fold(n).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"ficha").slice(0,40);}
+async function portraitDataFor(s){
+  try{
+    if(s.portraitKey){const v=await idbGet(s.portraitKey);if(v&&v.blob) return await blobToDataURL(v.blob);}
+    if(s.portraitId){const r=await fetch(portraitSrc(s));if(r.ok) return await blobToDataURL(await r.blob());}
+    if(s.portrait) return s.portrait;
+  }catch(e){}
+  return "";
+}
+async function exportSheet(){
+  const s=clone(cur);
+  const out={app:"ficha-dados-graduados",formato:1,exportadoEm:new Date().toISOString(),ficha:s};
+  delete s.id;delete s.portraitId;delete s.portraitKey;delete s.portrait;delete s.example;
+  const pic=await portraitDataFor(cur);
+  if(pic) out.retrato=pic;
+  const json=JSON.stringify(out,null,1);
+  const filename=fileSlug(cur.name)+".ficha.json";
+  if(IN_CLAUDE&&window.claude&&typeof window.claude.use==="function"){
+    let dl=null;
+    try{dl=await window.claude.use("downloads");}catch(e){}
+    if(dl){
+      try{await dl.save({filename,data:json});toast("Ficha exportada");return;}
+      catch(err){if(err&&err.code==="declined") return;}
+    }
+    openModal("Exportar ficha",`<p>Copie o texto abaixo e guarde. Para trazer a ficha de volta, use Importar ficha.</p><label class="sr" for="exp-text">Ficha</label><textarea id="exp-text" readonly>${esc(json)}</textarea>`,
+      `<button class="btn" data-act="modal-close">Fechar</button><button class="btn accent" data-act="copy-json">Copiar</button>`);
+    return;
+  }
+  try{
+    const url=URL.createObjectURL(new Blob([json],{type:"application/json"}));
+    const a=document.createElement("a");a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),4000);
+    toast("Ficha exportada");
+  }catch(e){toast("Não consegui exportar");}
+}
+async function importSheet(file){
+  let o;
+  try{o=JSON.parse(await file.text());}
+  catch(e){openModal("Importar ficha","<p>Esse arquivo não é uma ficha exportada. Escolha o arquivo que termina em .ficha.json.</p>",`<button class="btn" data-act="modal-close">Entendi</button>`);return;}
+  const raw=(o&&o.ficha)||o;
+  if(!raw||typeof raw!=="object"||(!raw.attrs&&!raw.skills)){openModal("Importar ficha","<p>Não encontrei atributos nem perícias nesse arquivo.</p>",`<button class="btn" data-act="modal-close">Entendi</button>`);return;}
+  const s=normalize(raw,false);
+  s.example=false;s.portrait="";s.portraitId="";s.portraitKey="";s.portraitAlpha=false;
+  dropUntouchedExample();
+  sheets[s.id]=s;cur=s;touched.add(s.id);
+  renderAll();touch();
+  const pic=(o&&o.retrato)||raw.portrait||"";
+  const blob=typeof pic==="string"?dataURLtoBlob(pic):null;
+  if(blob){await setPortrait(s,blob,Number(raw.portraitZoom)||1);if(cur===s) renderPortrait();touch();}
+  toast("Ficha “"+(s.name||"Sem nome")+"” importada");
+}
+
+/* ---------- Tela cheia e instalação ---------- */
+const fsEl=document.documentElement;
+const canFS=!!(document.fullscreenEnabled||document.webkitFullscreenEnabled);
+function isFS(){return !!(document.fullscreenElement||document.webkitFullscreenElement);}
+function updateFSLabel(){const b=$("#btn-fs");b.textContent=isFS()?"Sair da tela cheia":"Tela cheia";}
+async function toggleFullscreen(){
+  try{
+    if(isFS()){(document.exitFullscreen||document.webkitExitFullscreen).call(document);return;}
+    const req=fsEl.requestFullscreen||fsEl.webkitRequestFullscreen;
+    await req.call(fsEl,{navigationUI:"hide"});
+    if(screen.orientation&&screen.orientation.lock){screen.orientation.lock("landscape").catch(()=>{});}
+  }catch(e){toast("Tela cheia indisponível aqui");}
+}
+if(canFS){$("#btn-fs").hidden=false;document.addEventListener("fullscreenchange",updateFSLabel);document.addEventListener("webkitfullscreenchange",updateFSLabel);}
+let installPrompt=null;
+window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();installPrompt=e;$("#btn-install").hidden=false;});
+window.addEventListener("appinstalled",()=>{installPrompt=null;$("#btn-install").hidden=true;toast("App instalado");});
+const isIOS=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+const standalone=window.navigator.standalone===true||(window.matchMedia&&window.matchMedia("(display-mode: standalone), (display-mode: fullscreen)").matches);
+if(isIOS&&!standalone&&!IN_CLAUDE) $("#ios-hint").classList.add("show");
+
+/* Funcionar sem internet depois da primeira visita (só no site publicado) */
+if("serviceWorker" in navigator&&!IN_CLAUDE&&(location.protocol==="https:"||location.hostname==="localhost"||location.hostname==="127.0.0.1")){
+  window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{});});
+}
+
+/* ---------- Início ---------- */
+const ex=exampleSheet();sheets={[ex.id]:ex};cur=ex;
+renderAll();layoutApp();setStatus("pending");
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitName);
+initStore();
+})();
+</script>
+</body>
+</html>
