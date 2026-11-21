@@ -524,11 +524,7 @@ function exampleSheet(){
   Object.assign(s,{name:"Brígida Ní Dhonn",level:2,profile:"Analista",occupation:"Curandeira",
     attrs:{fisico:6,mente:8,emocao:8},example:true});
   Object.assign(s.skills,{medicina:8,intuicao:8,inspecionar:6,percepcao:6,carisma:6,disciplina:6,adestramento:6,sobrevivencia:6,furtividade:6});
-  s.abilities=[
-    {id:newId(),title:"Mãos Firmes",cost:"1 PD",text:"Depois de rolar Medicina, role de novo o dado de perícia e fique com o melhor resultado."},
-    {id:newId(),title:"Olho de Erveira",cost:"Passiva",text:"Medicina sobe um passo quando você examina plantas, unguentos ou venenos."},
-    {id:newId(),title:"Voz Mansa",cost:"2 PD",text:"Uma vez por cena, acalma uma pessoa ou um animal assustado sem precisar de teste."}
-  ];
+  s.abilities=[];
   return s;
 }
 function normalize(o,keepId){
@@ -1229,29 +1225,81 @@ async function readPixels(file,maxDim){
   }finally{URL.revokeObjectURL(url);}
 }
 function hasAlphaData(d){for(let i=3;i<d.length;i+=64){if(d[i]<250) return true;}return false;}
-function clearWhiteBg(id,W,H){
-  const d=id.data;
-  const isBg=i=>{const r=d[i],g=d[i+1],b=d[i+2];return r>=228&&g>=228&&b>=228&&Math.max(r,g,b)-Math.min(r,g,b)<=22;};
-  let tot=0,bg=0;
-  const chk=(x,y)=>{tot++;const i=(y*W+x)*4;if(d[i+3]===0||isBg(i)) bg++;};
+/* Fundo liso (branco, cinza claro, creme…): a cor vem da borda da imagem.
+   Apaga o fundo a partir das bordas e também os "buracos" de fundo presos entre braço e corpo. Devolve a cor do fundo, ou null. */
+function clearFlatBg(id,W,H){
+  const d=id.data,N=W*H;
+  const samples=[];
+  const add=(x,y)=>{const i=(y*W+x)*4;if(d[i+3]>200) samples.push(i);};
+  for(let x=0;x<W;x+=3){add(x,0);add(x,H-1);}
+  for(let y=0;y<H;y+=3){add(0,y);add(W-1,y);}
+  if(samples.length<20) return null; /* borda já transparente */
+  const med=k=>{const a=samples.map(i=>d[i+k]).sort((p,q)=>p-q);return a[a.length>>1];};
+  const bg=[med(0),med(1),med(2)];
+  if(Math.min(bg[0],bg[1],bg[2])<150) return null; /* só fundos claros */
+  const near=(i,t)=>Math.abs(d[i]-bg[0])<=t&&Math.abs(d[i+1]-bg[1])<=t&&Math.abs(d[i+2]-bg[2])<=t;
+  let tot=0,ok=0;
+  const chk=(x,y)=>{tot++;const i=(y*W+x)*4;if(d[i+3]<=24||near(i,30)) ok++;};
   for(let x=0;x<W;x+=2){chk(x,0);chk(x,H-1);}
   for(let y=0;y<H;y+=2){chk(0,y);chk(W-1,y);}
-  if(bg/tot<0.6) return false;
-  const mask=new Uint8Array(W*H),stack=new Int32Array(W*H);let sp=0;
-  const push=(x,y)=>{const p=y*W+x;if(mask[p]) return;const i=p*4;if(d[i+3]===0||isBg(i)){mask[p]=1;stack[sp++]=p;}};
+  if(ok/tot<0.6) return null;
+  const mask=new Uint8Array(N),stack=new Int32Array(N);let sp=0;
+  /* o fundo se espalha só por cor bem próxima, para não comer roupa clara que encosta na borda */
+  const push=(x,y)=>{const p=y*W+x;if(mask[p]) return;const i=p*4;if(d[i+3]<=24||near(i,16)){mask[p]=1;stack[sp++]=p;}};
   for(let x=0;x<W;x++){push(x,0);push(x,H-1);}
   for(let y=0;y<H;y++){push(0,y);push(W-1,y);}
   while(sp){const p=stack[--sp],x=p%W,y=(p-x)/W;if(x>0)push(x-1,y);if(x<W-1)push(x+1,y);if(y>0)push(x,y-1);if(y<H-1)push(x,y+1);}
-  let changed=0;
-  for(let p=0;p<W*H;p++){if(mask[p]){if(d[p*4+3]) changed++;d[p*4+3]=0;}}
-  /* borda suave: pixels claros encostados no fundo ficam semitransparentes (sem contorno branco) */
-  for(let y=0;y<H;y++) for(let x=0;x<W;x++){
-    const p=y*W+x;if(mask[p]) continue;
-    if(!((x>0&&mask[p-1])||(x<W-1&&mask[p+1])||(y>0&&mask[p-W])||(y<H-1&&mask[p+W]))) continue;
-    const i=p*4,mn=Math.min(d[i],d[i+1],d[i+2]);
-    if(mn>170) d[i+3]=Math.round(d[i+3]*Math.max(0,Math.min(1,(255-mn)/85)));
+  /* buracos presos: manchas lisas da cor exata do fundo (roupa clara tem sombra e textura, então fica) */
+  const seen=new Uint8Array(N),minArea=Math.max(30,Math.round(N*0.00015));
+  for(let p0=0;p0<N;p0++){
+    if(mask[p0]||seen[p0]||!near(p0*4,10)) continue;
+    const comp=[];let sum=0;sp=0;stack[sp++]=p0;seen[p0]=1;
+    while(sp){
+      const p=stack[--sp],i=p*4;comp.push(p);
+      sum+=Math.abs(d[i]-bg[0])+Math.abs(d[i+1]-bg[1])+Math.abs(d[i+2]-bg[2]);
+      const x=p%W,y=(p-x)/W;
+      const nb=[x>0?p-1:-1,x<W-1?p+1:-1,y>0?p-W:-1,y<H-1?p+W:-1];
+      for(const q of nb){if(q>=0&&!seen[q]&&!mask[q]&&near(q*4,10)){seen[q]=1;stack[sp++]=q;}}
+    }
+    if(comp.length>=minArea&&sum/comp.length<=9) for(const p of comp) mask[p]=1;
   }
-  return changed>0;
+  let changed=0;
+  for(let p=0;p<N;p++){if(mask[p]){if(d[p*4+3]) changed++;d[p*4+3]=0;}}
+  return changed>0?bg:null;
+}
+/* Contorno: nos 2 pixels colados no transparente, tira a "sobra" da cor do fundo (como a ferramenta cor-para-transparência).
+   Resolve o halo branco em volta de recortes; contorno escuro não muda. */
+function unmix(d,i,bg){
+  let a=0;
+  for(let k=0;k<3;k++){const c=d[i+k],b=bg[k];const r=c<b?(b-c)/b:(c>b?(c-b)/(255-b||1):0);if(r>a) a=r;}
+  if(a>=0.98) return;
+  if(a<=0.02){d[i+3]=0;return;}
+  for(let k=0;k<3;k++) d[i+k]=Math.max(0,Math.min(255,Math.round((d[i+k]-(1-a)*bg[k])/a)));
+  d[i+3]=Math.round(d[i+3]*a);
+}
+function defringe(id,W,H,bg){
+  const d=id.data,N=W*H,band=new Uint8Array(N);
+  /* 1) pixels semitransparentes (contorno de recorte): tira a mistura com o fundo, por mais grosso que seja */
+  for(let p=0;p<N;p++){const a=d[p*4+3];if(a>24&&a<250) unmix(d,p*4,bg);}
+  /* 2) os 2 pixels opacos colados no transparente */
+  const clear=p=>d[p*4+3]<=24;
+  for(let pass=1;pass<=2;pass++){
+    for(let y=0;y<H;y++) for(let x=0;x<W;x++){
+      const p=y*W+x;if(band[p]||clear(p)) continue;
+      const hit=q=>pass===1?clear(q):band[q]===1;
+      if((x>0&&hit(p-1))||(x<W-1&&hit(p+1))||(y>0&&hit(p-W))||(y<H-1&&hit(p+W))) band[p]=pass;
+    }
+  }
+  for(let p=0;p<N;p++){if(band[p]) unmix(d,p*4,bg);}
+}
+/* Prepara a imagem: apaga fundo liso ou, se já vier transparente, limpa o contorno claro. Devolve true se terminou com transparência. */
+function cleanupAlpha(P){
+  const had=hasAlphaData(P.id.data);
+  const bg=clearFlatBg(P.id,P.W,P.H);
+  if(!bg&&!had) return false;
+  defringe(P.id,P.W,P.H,bg||[255,255,255]);
+  P.ctx.putImageData(P.id,0,0);
+  return true;
 }
 function bboxOf(d,W,H,x0,x1){
   let minX=1e9,minY=1e9,maxX=-1,maxY=-1;
@@ -1300,7 +1348,7 @@ async function compose(src,boxes,H){
 }
 async function splitStates(file){
   const P=await readPixels(file,3000);
-  if(clearWhiteBg(P.id,P.W,P.H)) P.ctx.putImageData(P.id,0,0);
+  cleanupAlpha(P);
   const d=P.id.data;
   const [s1,s2]=findSplits(d,P.W,P.H);
   const boxes=[[0,s1],[s1,s2],[s2,P.W]].map(([a,b])=>bboxOf(d,P.W,P.H,a,b));
@@ -1310,10 +1358,7 @@ async function splitStates(file){
 /* Uma foto só: com fundo branco liso ou transparente, recorta e corta as sobras; foto comum segue como está */
 async function cleanSingle(file){
   const P=await readPixels(file,3000);
-  const had=hasAlphaData(P.id.data);
-  const cleared=clearWhiteBg(P.id,P.W,P.H);
-  if(!had&&!cleared) return null;
-  if(cleared) P.ctx.putImageData(P.id,0,0);
+  if(!cleanupAlpha(P)) return null;
   const b=bboxOf(P.id.data,P.W,P.H,0,P.W);
   if(!b) return null;
   return (await compose(P.c,[b],P.H))[0];
