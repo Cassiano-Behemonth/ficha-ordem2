@@ -29,7 +29,10 @@ Se o navegador apagar os dados do site (limpeza de cache ou de dados), as fichas
 
 - **Dados:** toque para subir um passo; segure o dedo (ou use o botão direito no computador) para descer.
 - **Perfil:** toque para alternar entre Executor, Analista e Vigilante. O Analista tem **Análise** (4 pontos) no lugar de **Ímpeto** (3 pontos). O contador aparece quando alguma habilidade cita a palavra.
-- **Retrato:** toque na área do retrato para escolher a imagem. PNG com fundo transparente fica recortado sobre o degradê do tema. O controle **− 100% +** muda o tamanho.
+- **PV:** mostra atual/máximo (ex.: `7/10`). A foto do personagem muda sozinha conforme a vida: **Saudável** acima da metade, **Machucado** na metade ou abaixo, **Morto** com 0 PV.
+- **Fotos:** as três miniaturas no canto do retrato são Saudável, Machucado e Morto. Toque numa vazia para escolher a foto; toque numa preenchida para ver como ela fica (o botão **Voltar ao automático** volta para a foto da vida atual). Faltando a foto de Machucado, a ficha usa a de Saudável; faltando a de Morto, usa a anterior em preto e branco.
+- **Imagem com os 3 estados lado a lado:** escolha a imagem inteira e toque em **Separar nos 3**. A ficha divide nos vãos entre os personagens, apaga fundo branco liso, corta as sobras e deixa os três na mesma posição. Fundo transparente também funciona.
+- **Tamanho da foto:** o controle **− 100% +** muda o tamanho da foto que está aparecendo; o **×** remove essa foto.
 - **Tema:** ☰ → cinco cores, com fundo preto ou branco. Cada ficha guarda o próprio tema.
 
 ## Atualizar o site

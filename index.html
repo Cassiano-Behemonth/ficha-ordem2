@@ -255,6 +255,11 @@ html.rot #app{
 .lvl{width:2.2em;background:transparent;border:0;border-bottom:1px solid transparent;color:var(--ink);font-family:var(--body);font-weight:700;font-size:26px;text-align:center;font-variant-numeric:tabular-nums;padding:0;-moz-appearance:textfield;appearance:textfield}
 .lvl::-webkit-outer-spin-button,.lvl::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 .lvl:hover,.lvl:focus,.occ:hover,.occ:focus{outline:none;border-bottom-color:var(--line)}
+.pv-grp{display:flex;align-items:center;gap:6px}
+.slash{color:var(--muted);font-family:var(--body)}
+.lvl-max{color:var(--muted)}
+#f-pv.v-machucado{color:var(--blood)}
+#f-pv.v-morto{color:var(--blood);text-decoration:line-through}
 .profile{border:1px solid var(--accent);background:var(--accent);color:var(--on-accent);border-radius:3px;padding:2px 14px;font-family:var(--display);letter-spacing:.12em;font-size:24px}
 .profile.empty{background:transparent;color:var(--muted);border-style:dashed;border-color:var(--line)}
 .occ{min-width:0;flex:1;background:transparent;border:0;border-bottom:1px solid transparent;color:var(--ink);font-family:var(--display);letter-spacing:.12em;font-size:24px;padding:0}
@@ -316,10 +321,14 @@ html.rot #app{
   -webkit-mask-image:linear-gradient(to right,transparent 0,#000 30%);mask-image:linear-gradient(to right,transparent 0,#000 30%)}
 .portrait{position:absolute;inset:0;z-index:1;display:block;cursor:pointer}
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(var(--z,1));transform-origin:center top;filter:sepia(.12) contrast(1.04);-webkit-mask-image:linear-gradient(to right,transparent 0,#000 28%);mask-image:linear-gradient(to right,transparent 0,#000 28%)}
-.portrait.alpha img{inset:auto;top:0;left:50%;width:auto;height:calc(var(--z,1)*100%);max-width:none;object-fit:contain;transform:translateX(-50%);-webkit-mask-image:none;mask-image:none;filter:drop-shadow(0 18px 34px var(--cut-shadow))}
+.portrait.alpha img{inset:auto;top:auto;bottom:0;left:50%;width:auto;height:100%;max-width:none;object-fit:contain;object-position:center bottom;transform:translateX(-50%) scale(var(--z,1));transform-origin:var(--zo,50% 0%);-webkit-mask-image:none;mask-image:none;filter:drop-shadow(0 18px 34px var(--cut-shadow))}
+.portrait img{animation:pic-in .35s ease}
+@keyframes pic-in{from{opacity:0}to{opacity:1}}
+.portrait.dim img{filter:grayscale(1) brightness(.5) contrast(1.1)}
+.portrait.alpha.dim img{filter:grayscale(1) brightness(.5) contrast(1.1) drop-shadow(0 18px 34px var(--cut-shadow))}
 .portrait .empty-p{position:absolute;inset:60px 56px 60px 40px;border:2px dashed var(--line);border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--muted);font-family:var(--display);letter-spacing:.12em;font-size:22px;text-align:center}
 .portrait:hover .empty-p,.col-c:focus-within .empty-p{border-color:var(--accent);color:var(--accent)}
-.p-zoom{position:absolute;right:22px;bottom:22px;z-index:2;display:flex;align-items:center;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--card);opacity:0}
+.p-zoom{position:absolute;right:22px;bottom:150px;z-index:2;display:flex;align-items:center;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--card);opacity:0}
 .col-c:hover .p-zoom,.p-zoom:focus-within{opacity:1}
 .p-zoom button{width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:var(--ink);font-size:22px;line-height:1;padding:0}
 .p-zoom button:hover{background:var(--panel);color:var(--accent)}
@@ -328,7 +337,19 @@ html.rot #app{
 .p-zoom .pz-del{color:var(--muted)}
 .p-zoom .pz-del:hover{color:var(--blood)}
 .p-busy{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;font-family:var(--display);letter-spacing:.12em;font-size:22px;color:var(--ink);background:color-mix(in srgb,var(--card) 70%,transparent)}
-.p-zoom[hidden],.p-busy[hidden]{display:none}
+.p-zoom[hidden],.p-busy[hidden],.p-auto[hidden]{display:none}
+/* Três fotos: Saudável, Machucado, Morto */
+.p-states{position:absolute;right:22px;bottom:22px;z-index:2;display:flex;gap:10px;padding:8px 10px;border:1px solid var(--line);border-radius:14px;background:color-mix(in srgb,var(--card) 82%,transparent);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.pst{display:flex;flex-direction:column;align-items:center;gap:4px;width:80px;padding:0;border:0;background:transparent;color:var(--muted);font-family:var(--display);letter-spacing:.06em;font-size:15px;white-space:nowrap}
+.pst-img{position:relative;display:block;width:80px;height:80px;border-radius:9px;border:2px solid var(--line);overflow:hidden;background:var(--panel)}
+.pst-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.pst-img.alpha img{object-fit:contain;object-position:center bottom}
+.pst-img .plus{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--body);font-size:34px;color:var(--muted)}
+.pst:hover .pst-img{border-color:var(--accent-dim)}
+.pst.on{color:var(--ink)}
+.pst.on .pst-img{border-color:var(--accent);box-shadow:0 0 14px color-mix(in srgb,var(--accent) 35%,transparent)}
+.pst.auto .pst-lbl::before{content:"";display:inline-block;width:8px;height:8px;margin-right:5px;border-radius:50%;background:var(--accent);vertical-align:middle}
+.p-auto{position:absolute;left:40px;top:28px;z-index:2;border:1px solid var(--accent);border-radius:999px;background:color-mix(in srgb,var(--card) 85%,transparent);color:var(--accent);padding:6px 14px;font-family:var(--display);letter-spacing:.08em;font-size:18px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .tip{position:absolute;left:64px;bottom:16px;margin:0;font-size:15px;color:var(--muted);font-family:var(--flavor);font-style:italic}
 @media (hover:none){.p-zoom{opacity:1}}
@@ -388,7 +409,7 @@ html.rot #app{
       <input id="f-name" class="name" autocomplete="off" spellcheck="false">
       <div class="rule" aria-hidden="true"></div>
       <div class="meta">
-        <label for="f-pv">PV: <input id="f-pv" class="lvl" type="number" inputmode="numeric" min="0" max="99"></label>
+        <span class="pv-grp"><label for="f-pv">PV:</label> <input id="f-pv" class="lvl" type="number" inputmode="numeric" min="0" max="99"><span class="slash" aria-hidden="true">/</span><input id="f-pvmax" class="lvl lvl-max" type="number" inputmode="numeric" min="1" max="99" aria-label="PV máximo" title="PV máximo"></span>
         <label for="f-pd">PD: <input id="f-pd" class="lvl" type="number" inputmode="numeric" min="0" max="99"></label>
         <button id="profile" class="profile" data-act="profile" title="Clique para trocar o perfil"></button>
         <label class="sr" for="f-occ">Ocupação</label>
@@ -408,15 +429,17 @@ html.rot #app{
     </section>
 
     <section class="col-c">
-      <label class="portrait" for="f-portrait" id="portrait" title="Trocar retrato"></label>
+      <label class="portrait" for="f-portrait" id="portrait" title="Trocar a foto deste estado"></label>
       <input id="f-portrait" class="sr" type="file" accept="image/*">
-      <div class="p-zoom" id="p-zoom" role="group" aria-label="Tamanho do retrato" hidden>
-        <button data-act="zoom" data-d="-1" aria-label="Diminuir retrato" title="Diminuir">−</button>
+      <button class="p-auto" id="p-auto" data-act="pic-auto" hidden>↺ Voltar ao automático</button>
+      <div class="p-zoom" id="p-zoom" role="group" aria-label="Tamanho da foto" hidden>
+        <button data-act="zoom" data-d="-1" aria-label="Diminuir foto" title="Diminuir">−</button>
         <span id="p-zoom-v">100%</span>
-        <button data-act="zoom" data-d="1" aria-label="Aumentar retrato" title="Aumentar">+</button>
+        <button data-act="zoom" data-d="1" aria-label="Aumentar foto" title="Aumentar">+</button>
         <span class="pz-sep" aria-hidden="true"></span>
-        <button class="pz-del" id="p-clear" data-act="portrait-clear" aria-label="Remover retrato" title="Remover retrato">×</button>
+        <button class="pz-del" id="p-clear" data-act="portrait-clear" aria-label="Remover esta foto" title="Remover esta foto">×</button>
       </div>
+      <div class="p-states" id="p-states" role="group" aria-label="Fotos por estado de vida"></div>
       <div class="p-busy" id="p-busy" hidden>Carregando retrato…</div>
     </section>
   </article>
@@ -475,11 +498,25 @@ function dieSVG(n){
 const dieBtn=(kind,k,d,label)=>`<button class="die-btn" data-act="die" data-kind="${kind}" data-k="${k}" aria-label="${esc(label)}: d${d}. Toque para subir um passo, segure para descer" title="d${d}">${dieSVG(d)}</button>`;
 
 /* ---------- Modelo ---------- */
+/* Uma foto por estado de vida. data = imagem dentro da ficha; id = arquivo na conta (Claude); key = imagem guardada no aparelho */
+const SLOTS=[{k:"saudavel",n:"Saudável"},{k:"machucado",n:"Machucado"},{k:"morto",n:"Morto"}];
+function blankPic(){return {data:"",id:"",key:"",alpha:false,zoom:1};}
+function normPic(p){
+  const o=blankPic();
+  if(!p||typeof p!=="object") return o;
+  o.data=(typeof p.data==="string"&&/^data:image\/(png|jpe?g|webp|gif);base64,/.test(p.data)&&p.data.length<200000)?p.data:"";
+  o.id=(typeof p.id==="string"&&/^[\w.:@+~-]{1,200}$/.test(p.id))?p.id:"";
+  o.key=(typeof p.key==="string"&&/^[\w-]{1,80}$/.test(p.key))?p.key:"";
+  o.alpha=!!((o.data||o.id||o.key)&&p.alpha);
+  o.zoom=Math.max(.5,Math.min(2.5,Number(p.zoom)||1));
+  return o;
+}
+const hasPic=p=>!!(p&&(p.data||p.id||p.key));
 function blankSheet(){
   return {kind:"ficha",v:1,id:newId(),name:"Novo personagem",level:1,profile:"",occupation:"",
     attrs:{fisico:6,mente:6,emocao:6},pv:{cur:10,max:10},pd:{cur:8,max:8},
     skills:Object.fromEntries(SKILLS.map(s=>[s.k,4])),skillAttr:{},aptSpec:"",
-    abilities:[],notes:"",portrait:"",portraitId:"",portraitKey:"",portraitAlpha:false,portraitZoom:1,
+    abilities:[],notes:"",portraits:{saudavel:blankPic(),machucado:blankPic(),morto:blankPic()},
     impeto:0,analise:0,theme:{accent:"laranja",base:"preto"},example:false,updatedAt:0};
 }
 function exampleSheet(){
@@ -514,11 +551,10 @@ function normalize(o,keepId){
   s.notes=String(o.notes||"").slice(0,6000);
   s.impeto=clampInt(o.impeto,0,3,0);
   s.analise=clampInt(o.analise,0,4,0);
-  s.portrait=(typeof o.portrait==="string"&&/^data:image\/(png|jpe?g|webp|gif);base64,/.test(o.portrait)&&o.portrait.length<200000)?o.portrait:"";
-  s.portraitId=(typeof o.portraitId==="string"&&/^[\w.:@+~-]{1,200}$/.test(o.portraitId))?o.portraitId:"";
-  s.portraitKey=(typeof o.portraitKey==="string"&&/^[\w-]{1,80}$/.test(o.portraitKey))?o.portraitKey:"";
-  s.portraitAlpha=!!((s.portrait||s.portraitId||s.portraitKey)&&o.portraitAlpha);
-  s.portraitZoom=Math.max(.5,Math.min(2.5,Number(o.portraitZoom)||1));
+  const P=(o.portraits&&typeof o.portraits==="object")?o.portraits:{};
+  SLOTS.forEach(sl=>{s.portraits[sl.k]=normPic(P[sl.k]);});
+  /* fichas antigas tinham um retrato só: ele vira a foto de Saudável */
+  if(!o.portraits&&(o.portrait||o.portraitId||o.portraitKey)) s.portraits.saudavel=normPic({data:o.portrait,id:o.portraitId,key:o.portraitKey,alpha:o.portraitAlpha,zoom:o.portraitZoom});
   const th=o.theme||{};
   s.theme={accent:ACCENTS.some(a=>a.k===th.accent)?th.accent:"laranja",base:BASES.includes(th.base)?th.base:"preto"};
   s.example=!!o.example;
@@ -750,29 +786,69 @@ function renderAbilities(){
 }
 const EMPTY_P=`<span class="empty-p"><svg width="96" height="110" viewBox="0 0 96 110" aria-hidden="true"><path d="M48 8c13 0 22 10 22 24s-9 26-22 26-22-12-22-26S35 8 48 8zM6 108c2-28 19-44 42-44s40 16 42 44" fill="none" stroke="currentColor" stroke-width="2"/></svg>Toque para<br>adicionar retrato</span>`;
 const urlCache={};
-function portraitSrc(s){
-  if(s.portraitKey) return localUrls[s.portraitKey]||"";
-  if(s.portraitId) return urlCache[s.portraitId]||("/_blob/"+encodeURIComponent(s.portraitId));
-  return s.portrait||"";
+function picSrc(p){
+  if(!p) return "";
+  if(p.key) return localUrls[p.key]||"";
+  if(p.id) return urlCache[p.id]||("/_blob/"+encodeURIComponent(p.id));
+  return p.data||"";
+}
+/* Estado pela vida: acima da metade = Saudável; metade ou menos = Machucado; zero = Morto */
+function lifeState(s){
+  const max=Math.max(1,s.pv.max),c=s.pv.cur;
+  if(c<=0) return "morto";
+  if(c<=max/2) return "machucado";
+  return "saudavel";
+}
+let previewSlot=null,uploadSlot=null,lastShown=null;
+const shownSlot=()=>previewSlot||lifeState(cur);
+const slotName=k=>(SLOTS.find(x=>x.k===k)||{}).n||"";
+/* Foto a mostrar; sem a do estado, usa a anterior (Morto sem foto aparece em preto e branco) */
+function picFor(slot){
+  const P=cur.portraits;
+  if(hasPic(P[slot])||previewSlot) return {pic:hasPic(P[slot])?P[slot]:null,own:hasPic(P[slot]),dim:false};
+  if(slot==="machucado"&&hasPic(P.saudavel)) return {pic:P.saudavel,own:false,dim:false};
+  if(slot==="morto"){
+    if(hasPic(P.machucado)) return {pic:P.machucado,own:false,dim:true};
+    if(hasPic(P.saudavel)) return {pic:P.saudavel,own:false,dim:true};
+  }
+  return {pic:null,own:false,dim:false};
+}
+function loadMissingLocal(s){
+  const miss=SLOTS.map(x=>s.portraits[x.k]).filter(p=>p.key&&!localUrls[p.key]);
+  if(!miss.length) return;
+  Promise.all(miss.map(p=>loadLocalPortrait(p.key).then(ok=>{if(!ok){p.key="";p.alpha=false;}}))).then(()=>{if(cur===s) renderPortrait();});
 }
 function renderPortrait(){
-  const s=cur,box=$("#portrait"),src=portraitSrc(s);
-  if(!src&&s.portraitKey){
-    box.innerHTML="";$("#p-zoom").hidden=true;
-    loadLocalPortrait(s.portraitKey).then(ok=>{
-      if(cur!==s) return;
-      if(ok) renderPortrait();
-      else{s.portraitKey="";s.portraitAlpha=false;renderPortrait();}
-    });
-    return;
-  }
-  box.innerHTML=src?`<img src="${esc(src)}" alt="Retrato de ${esc(s.name)}">`:EMPTY_P;
-  box.classList.toggle("alpha",!!(src&&s.portraitAlpha));
-  box.style.setProperty("--z",s.portraitZoom||1);
+  const s=cur,box=$("#portrait"),slot=shownSlot(),f=picFor(slot);
+  loadMissingLocal(s);
+  lastShown=slot;
+  const src=picSrc(f.pic);
+  if(f.pic&&!src){box.innerHTML="";}
+  else box.innerHTML=src?`<img src="${esc(src)}" alt="${esc(s.name)}: ${esc(slotName(slot))}">`:`<span class="empty-p"><svg width="96" height="110" viewBox="0 0 96 110" aria-hidden="true"><path d="M48 8c13 0 22 10 22 24s-9 26-22 26-22-12-22-26S35 8 48 8zM6 108c2-28 19-44 42-44s40 16 42 44" fill="none" stroke="currentColor" stroke-width="2"/></svg>Toque para adicionar<br>a foto: ${esc(slotName(slot))}</span>`;
+  box.classList.toggle("alpha",!!(src&&f.pic.alpha));
+  box.classList.toggle("dim",!!(src&&f.dim));
+  const zz=(f.pic&&f.pic.zoom)||1;box.style.setProperty("--z",zz);box.style.setProperty("--zo",zz<1?"50% 100%":"50% 0%");
   const img=box.querySelector("img");
-  if(img) img.addEventListener("error",()=>{box.classList.remove("alpha");box.innerHTML=`<span class="empty-p">Retrato indisponível.<br>Envie de novo.</span>`;},{once:true});
-  $("#p-zoom").hidden=!src;
-  $("#p-zoom-v").textContent=Math.round((s.portraitZoom||1)*100)+"%";
+  if(img) img.addEventListener("error",()=>{box.classList.remove("alpha","dim");box.innerHTML=`<span class="empty-p">Foto indisponível.<br>Envie de novo.</span>`;},{once:true});
+  $("#p-zoom").hidden=!(f.own&&src);
+  $("#p-zoom-v").textContent=Math.round(((f.pic&&f.pic.zoom)||1)*100)+"%";
+  $("#p-auto").hidden=!previewSlot;
+  renderStates();
+}
+function renderStates(){
+  const auto=lifeState(cur),shown=shownSlot();
+  $("#p-states").innerHTML=SLOTS.map(sl=>{
+    const p=cur.portraits[sl.k],src=picSrc(p);
+    const inner=src?`<img src="${esc(src)}" alt="">`:`<span class="plus" aria-hidden="true">+</span>`;
+    const what=hasPic(p)?"mostrar":"adicionar foto";
+    return `<button class="pst ${sl.k===shown?"on":""} ${sl.k===auto?"auto":""}" data-act="pic-slot" data-slot="${sl.k}" aria-label="${sl.n}: ${what}${sl.k===auto?" (estado atual)":""}" title="${sl.n}: ${what}"><span class="pst-img ${p.alpha?"alpha":""}">${inner}</span><span class="pst-lbl">${sl.n}</span></button>`;
+  }).join("");
+  const pv=$("#f-pv");pv.classList.toggle("v-machucado",auto==="machucado");pv.classList.toggle("v-morto",auto==="morto");
+}
+/* Depois de mudar o PV: volta ao automático e troca a foto só se o estado mudou */
+function afterPV(){
+  previewSlot=null;
+  if(shownSlot()!==lastShown) renderPortrait(); else {$("#p-auto").hidden=true;renderStates();}
 }
 function renderTheme(){
   const t=cur.theme,root=document.documentElement;
@@ -788,7 +864,9 @@ function renderAll(){
   $("#f-name").value=cur.name;
   $("#f-pd").value=cur.pd.cur;
   $("#f-pv").value=cur.pv.cur;
+  $("#f-pvmax").value=cur.pv.max;
   $("#f-occ").value=cur.occupation;
+  previewSlot=null;
   renderProfile();renderAttrs();renderSkills();renderAbilities();renderPortrait();
   fitName();idleStatus();
 }
@@ -863,13 +941,15 @@ function openModal(title,bodyHTML,actionsHTML){
   const f=$("#modal-actions .btn");if(f) f.focus();
 }
 function closeModal(){$("#modal").hidden=true;}
-async function clearPortrait(s){
-  if(s.portraitKey){const k=s.portraitKey;if(localUrls[k]){URL.revokeObjectURL(localUrls[k]);delete localUrls[k];}idbDel(k);}
-  s.portrait="";s.portraitId="";s.portraitKey="";s.portraitAlpha=false;
+async function clearPic(p){
+  if(!p) return;
+  if(p.key){const k=p.key;if(localUrls[k]){URL.revokeObjectURL(localUrls[k]);delete localUrls[k];}idbDel(k);}
+  p.data="";p.id="";p.key="";p.alpha=false;p.zoom=1;
 }
 document.addEventListener("click",async e=>{
   const bar=$("#bar");
   if(bar.classList.contains("open")&&!e.target.closest("#bar")) toggleMenu(false);
+  if(e.target.closest("#portrait")) uploadSlot=shownSlot();
   const b=e.target.closest("[data-act]");if(!b) return;
   switch(b.dataset.act){
     case "die":
@@ -893,13 +973,37 @@ document.addEventListener("click",async e=>{
       {const t=document.querySelectorAll(".ab-title");if(t.length){t[t.length-1].focus();t[t.length-1].scrollIntoView({block:"nearest"});}}
       break;
     case "ab-del": cur.abilities=cur.abilities.filter(a=>a.id!==b.dataset.id);renderAbilities();touch();break;
-    case "portrait-clear": await clearPortrait(cur);cur.portraitZoom=1;renderPortrait();touch();break;
+    case "portrait-clear": await clearPic(cur.portraits[shownSlot()]);renderPortrait();touch();break;
     case "zoom":{
-      const z=Math.round(((cur.portraitZoom||1)+Number(b.dataset.d)*.1)*10)/10;
-      cur.portraitZoom=Math.max(.5,Math.min(2.5,z));
-      $("#portrait").style.setProperty("--z",cur.portraitZoom);
-      $("#p-zoom-v").textContent=Math.round(cur.portraitZoom*100)+"%";
+      const p=cur.portraits[shownSlot()];if(!hasPic(p)) break;
+      const z=Math.round(((p.zoom||1)+Number(b.dataset.d)*.1)*10)/10;
+      p.zoom=Math.max(.5,Math.min(2.5,z));
+      $("#portrait").style.setProperty("--z",p.zoom);$("#portrait").style.setProperty("--zo",p.zoom<1?"50% 100%":"50% 0%");
+      $("#p-zoom-v").textContent=Math.round(p.zoom*100)+"%";
       touch();break;}
+    case "pic-slot":{
+      const slot=b.dataset.slot;
+      if(!hasPic(cur.portraits[slot])){uploadSlot=slot;$("#f-portrait").click();break;}
+      previewSlot=(slot===lifeState(cur))?null:slot;renderPortrait();break;}
+    case "pic-auto": previewSlot=null;renderPortrait();break;
+    case "sheet-split":{
+      closeModal();
+      const ps=pendingSheet;pendingSheet=null;if(!ps) break;
+      $("#p-busy").hidden=false;
+      try{
+        const parts=await splitStates(ps.file);
+        for(let i=0;i<3;i++) await setPortrait(ps.target,SLOTS[i].k,parts[i].blob,autoZoom(parts[i].aspect));
+        previewSlot=null;
+        if(ps.target===cur) renderPortrait();
+        touch();toast("Fotos separadas: Saudável, Machucado e Morto");
+      }catch(err){toast("Não consegui separar essa imagem");}
+      finally{$("#p-busy").hidden=true;}
+      break;}
+    case "sheet-one":{
+      closeModal();
+      const ps=pendingSheet;pendingSheet=null;
+      if(ps) await placeOne(ps.target,ps.slot,ps.file);
+      break;}
     case "sheet-new":{
       toggleMenu(false);
       dropUntouchedExample();
@@ -914,7 +1018,7 @@ document.addEventListener("click",async e=>{
       const s=cur,id=s.id;closeModal();
       try{if(store==="db"&&knownRemote.has(id)) await dbRef.collection("data/users/"+uid).doc(id).delete();}
       catch(err){setStatus("error","Não consegui excluir: tente de novo");break;}
-      if(s.portraitKey) await clearPortrait(s);
+      for(const sl of SLOTS){if(s.portraits[sl.k].key) await clearPic(s.portraits[sl.k]);}
       knownRemote.delete(id);dirty.delete(id);touched.delete(id);delete sheets[id];
       const rest=Object.values(sheets);
       if(rest.length) cur=rest.sort((a,b)=>b.updatedAt-a.updatedAt)[0];
@@ -945,7 +1049,17 @@ document.addEventListener("contextmenu",e=>{
 document.addEventListener("input",e=>{
   const t=e.target;if(!cur) return;
   if(t.id==="f-name"){cur.name=t.value.slice(0,80);fitName();touch();clearTimeout(t._r);t._r=setTimeout(renderBar,400);}
-  else if(t.id==="f-pv"){const v=clampInt(t.value,0,99,cur.pv.cur);cur.pv.cur=v;cur.pv.max=Math.max(cur.pv.max,v);touch();}
+  else if(t.id==="f-pv"){
+    const v=clampInt(t.value,0,99,cur.pv.cur);cur.pv.cur=v;
+    if(v>cur.pv.max){cur.pv.max=v;$("#f-pvmax").value=v;}
+    afterPV();touch();
+  }
+  else if(t.id==="f-pvmax"){
+    if(t.value.trim()==="") return;
+    const m=clampInt(t.value,1,99,cur.pv.max);cur.pv.max=m;
+    if(cur.pv.cur>m){cur.pv.cur=m;$("#f-pv").value=m;}
+    afterPV();touch();
+  }
   else if(t.id==="f-pd"){const v=clampInt(t.value,0,99,cur.pd.cur);cur.pd.cur=v;cur.pd.max=Math.max(cur.pd.max,v);touch();}
   else if(t.id==="f-occ"){cur.occupation=t.value.slice(0,60);touch();}
   else if(t.dataset.f){
@@ -962,10 +1076,15 @@ document.addEventListener("change",async e=>{
     dropUntouchedExample();cur=sheets[t.value];renderAll();if(store==="local") saveLocal();
   }else if(t.id==="f-portrait"&&t.files&&t.files[0]){
     const file=t.files[0];t.value="";
-    const target=cur;
-    await setPortrait(target,file,1);
-    if(target===cur) renderPortrait();
-    touch();
+    const target=cur,slot=uploadSlot||shownSlot();uploadSlot=null;
+    let dims=null;try{dims=await imageSize(file);}catch(err){}
+    if(dims&&dims.w/dims.h>=2.1){
+      pendingSheet={file,target,slot};
+      openModal("Três estados numa imagem","<p>Essa imagem parece ter os 3 estados lado a lado: Saudável, Machucado e Morto. Quer separar e usar cada parte na sua foto?</p>",
+        `<button class="btn" data-act="sheet-one">Usar como uma foto só</button><button class="btn accent" data-act="sheet-split">Separar nos 3</button>`);
+      return;
+    }
+    await placeOne(target,slot,file);
   }else if(t.id==="f-import"&&t.files&&t.files[0]){
     const file=t.files[0];t.value="";
     toggleMenu(false);
@@ -982,7 +1101,8 @@ document.addEventListener("visibilitychange",()=>{if(document.visibilityState===
 
 /* ---------- Retrato: guardar em qualidade alta ---------- */
 /* No Claude vai como arquivo da conta; fora dele fica no próprio aparelho (IndexedDB). Se nada disso der, vira uma cópia reduzida dentro da ficha. */
-async function setPortrait(target,file,zoom){
+async function setPortrait(target,slot,file,zoom){
+  const pic=target.portraits[slot];
   $("#p-busy").hidden=false;
   try{
     let done=false,alpha=false;
@@ -993,7 +1113,7 @@ async function setPortrait(target,file,zoom){
       if(assets){
         try{
           const r=await assets.upload(hq.blob);
-          if(r&&r.id){await clearPortrait(target);urlCache[r.id]=r.url||("/_blob/"+encodeURIComponent(r.id));target.portraitId=r.id;done=true;}
+          if(r&&r.id){await clearPic(pic);urlCache[r.id]=r.url||("/_blob/"+encodeURIComponent(r.id));pic.id=r.id;done=true;}
         }catch(err){}
       }
     }
@@ -1001,29 +1121,30 @@ async function setPortrait(target,file,zoom){
       try{
         const key="p-"+newId();
         await idbPut(key,{blob:hq.blob,alpha:hq.alpha});
-        await clearPortrait(target);
-        target.portraitKey=key;localUrls[key]=URL.createObjectURL(hq.blob);done=true;
+        await clearPic(pic);
+        pic.key=key;localUrls[key]=URL.createObjectURL(hq.blob);done=true;
       }catch(err){}
     }
     if(!done){
-      const p=await shrink(file);
-      await clearPortrait(target);
-      target.portrait=p.data;alpha=p.alpha;
+      /* cópia reduzida dentro da ficha; na conta do Claude cabe menos (3 fotos por ficha) */
+      const p=await shrink(file,store==="db"?70000:180000);
+      await clearPic(pic);
+      pic.data=p.data;alpha=p.alpha;
       if(store==="db") setTimeout(()=>toast("Retrato salvo em qualidade menor"),400);
     }
-    target.portraitAlpha=alpha;
-    target.portraitZoom=zoom||1;
+    pic.alpha=alpha;
+    pic.zoom=zoom||1;
     return true;
   }catch(err){toast("Não consegui ler essa imagem");return false;}
   finally{$("#p-busy").hidden=true;}
 }
-const LIMIT=180000;
+
 function hasAlpha(ctx,w,h){
   const d=ctx.getImageData(0,0,w,h).data;
   for(let i=3;i<d.length;i+=16){if(d[i]<250) return true;}
   return false;
 }
-function encode(c,alpha){
+function encode(c,alpha,LIMIT){
   if(!alpha){
     let q=.82,out=c.toDataURL("image/jpeg",q);
     while(out.length>LIMIT&&q>.35){q-=.12;out=c.toDataURL("image/jpeg",q);}
@@ -1067,7 +1188,7 @@ async function prepareHQ(file){
     return {blob,alpha};
   }finally{URL.revokeObjectURL(url);}
 }
-async function shrink(file){
+async function shrink(file,LIMIT){
   const url=URL.createObjectURL(file);
   try{
     const img=await loadImg(url);
@@ -1079,11 +1200,136 @@ async function shrink(file){
       const c=document.createElement("canvas");c.width=w;c.height=h;
       const ctx=c.getContext("2d");ctx.drawImage(img,0,0,w,h);
       if(max===900) alpha=maybeAlpha&&hasAlpha(ctx,w,h);
-      out=encode(c,alpha);
+      out=encode(c,alpha,LIMIT);
       if(out.length<=LIMIT) break;
     }
     return {data:out,alpha:alpha};
   }finally{URL.revokeObjectURL(url);}
+}
+
+/* ---------- Ajuste automático das fotos ----------
+   - Imagem com os 3 estados lado a lado: separa nos vãos entre os personagens.
+   - Fundo branco liso: apaga a partir das bordas (o que está dentro do contorno fica).
+   - Corta as sobras e alinha os 3 pela base, para o personagem não "pular" ao trocar de estado. */
+let pendingSheet=null;
+function imageSize(file){
+  const url=URL.createObjectURL(file);
+  return loadImg(url).then(i=>({w:i.naturalWidth||i.width,h:i.naturalHeight||i.height})).finally(()=>URL.revokeObjectURL(url));
+}
+async function readPixels(file,maxDim){
+  const url=URL.createObjectURL(file);
+  try{
+    const img=await loadImg(url);
+    const W0=img.naturalWidth||img.width,H0=img.naturalHeight||img.height;
+    const sc=Math.min(1,maxDim/Math.max(W0,H0));
+    const W=Math.max(1,Math.round(W0*sc)),H=Math.max(1,Math.round(H0*sc));
+    const c=document.createElement("canvas");c.width=W;c.height=H;
+    const ctx=c.getContext("2d",{willReadFrequently:true});ctx.drawImage(img,0,0,W,H);
+    return {c,ctx,W,H,id:ctx.getImageData(0,0,W,H)};
+  }finally{URL.revokeObjectURL(url);}
+}
+function hasAlphaData(d){for(let i=3;i<d.length;i+=64){if(d[i]<250) return true;}return false;}
+function clearWhiteBg(id,W,H){
+  const d=id.data;
+  const isBg=i=>{const r=d[i],g=d[i+1],b=d[i+2];return r>=228&&g>=228&&b>=228&&Math.max(r,g,b)-Math.min(r,g,b)<=22;};
+  let tot=0,bg=0;
+  const chk=(x,y)=>{tot++;const i=(y*W+x)*4;if(d[i+3]===0||isBg(i)) bg++;};
+  for(let x=0;x<W;x+=2){chk(x,0);chk(x,H-1);}
+  for(let y=0;y<H;y+=2){chk(0,y);chk(W-1,y);}
+  if(bg/tot<0.6) return false;
+  const mask=new Uint8Array(W*H),stack=new Int32Array(W*H);let sp=0;
+  const push=(x,y)=>{const p=y*W+x;if(mask[p]) return;const i=p*4;if(d[i+3]===0||isBg(i)){mask[p]=1;stack[sp++]=p;}};
+  for(let x=0;x<W;x++){push(x,0);push(x,H-1);}
+  for(let y=0;y<H;y++){push(0,y);push(W-1,y);}
+  while(sp){const p=stack[--sp],x=p%W,y=(p-x)/W;if(x>0)push(x-1,y);if(x<W-1)push(x+1,y);if(y>0)push(x,y-1);if(y<H-1)push(x,y+1);}
+  let changed=0;
+  for(let p=0;p<W*H;p++){if(mask[p]){if(d[p*4+3]) changed++;d[p*4+3]=0;}}
+  /* borda suave: pixels claros encostados no fundo ficam semitransparentes (sem contorno branco) */
+  for(let y=0;y<H;y++) for(let x=0;x<W;x++){
+    const p=y*W+x;if(mask[p]) continue;
+    if(!((x>0&&mask[p-1])||(x<W-1&&mask[p+1])||(y>0&&mask[p-W])||(y<H-1&&mask[p+W]))) continue;
+    const i=p*4,mn=Math.min(d[i],d[i+1],d[i+2]);
+    if(mn>170) d[i+3]=Math.round(d[i+3]*Math.max(0,Math.min(1,(255-mn)/85)));
+  }
+  return changed>0;
+}
+function bboxOf(d,W,H,x0,x1){
+  let minX=1e9,minY=1e9,maxX=-1,maxY=-1;
+  for(let y=0;y<H;y++){
+    let i=(y*W+x0)*4+3;
+    for(let x=x0;x<x1;x++,i+=4){if(d[i]>24){if(x<minX)minX=x;if(x>maxX)maxX=x;if(y<minY)minY=y;if(y>maxY)maxY=y;}}
+  }
+  return maxX<0?null:{x:minX,y:minY,w:maxX-minX+1,h:maxY-minY+1,bottom:maxY>=H-2};
+}
+function findSplits(d,W,H){
+  const occ=new Uint32Array(W);
+  for(let y=0;y<H;y++){let i=y*W*4+3;for(let x=0;x<W;x++,i+=4) if(d[i]>24) occ[x]++;}
+  const pick=center=>{
+    const r=Math.round(W/8),lo=Math.max(1,center-r),hi=Math.min(W-2,center+r);
+    let bv=Infinity;for(let x=lo;x<=hi;x++) if(occ[x]<bv) bv=occ[x];
+    /* entre as colunas mais vazias, pega o meio do vão mais perto do terço */
+    let best=center,bestDist=Infinity;
+    for(let x=lo;x<=hi;x++){
+      if(occ[x]!==bv) continue;
+      let e=x;while(e+1<=hi&&occ[e+1]===bv) e++;
+      const mid=Math.round((x+e)/2),dist=Math.abs(mid-center);
+      if(dist<bestDist){bestDist=dist;best=mid;}
+      x=e;
+    }
+    return best;
+  };
+  return [pick(Math.round(W/3)),pick(Math.round(2*W/3))];
+}
+async function compose(src,boxes,H){
+  const cw=Math.max(...boxes.map(b=>b.w)),ch=Math.max(...boxes.map(b=>b.h));
+  const pad=Math.round(Math.max(cw,ch)*0.02);
+  const atBottom=boxes.some(b=>b.bottom),bpad=atBottom?0:pad;
+  let OW=cw+pad*2,OH=ch+pad+bpad;
+  const sc=Math.min(1,2000/Math.max(OW,OH));
+  const out=[];
+  for(const b of boxes){
+    const c=document.createElement("canvas");c.width=Math.round(OW*sc);c.height=Math.round(OH*sc);
+    const g=c.getContext("2d");g.imageSmoothingQuality="high";
+    const dx=(pad+(cw-b.w)/2)*sc,dy=(OH-bpad-b.h)*sc;
+    g.drawImage(src,b.x,b.y,b.w,b.h,dx,dy,b.w*sc,b.h*sc);
+    let blob=await toBlob(c,"image/webp",.92);
+    if(!blob||blob.type!=="image/webp") blob=await toBlob(c,"image/png");
+    out.push({blob,aspect:OW/OH});
+  }
+  return out;
+}
+async function splitStates(file){
+  const P=await readPixels(file,3000);
+  if(clearWhiteBg(P.id,P.W,P.H)) P.ctx.putImageData(P.id,0,0);
+  const d=P.id.data;
+  const [s1,s2]=findSplits(d,P.W,P.H);
+  const boxes=[[0,s1],[s1,s2],[s2,P.W]].map(([a,b])=>bboxOf(d,P.W,P.H,a,b));
+  if(boxes.some(b=>!b)) throw new Error("parte vazia");
+  return compose(P.c,boxes,P.H);
+}
+/* Uma foto só: com fundo branco liso ou transparente, recorta e corta as sobras; foto comum segue como está */
+async function cleanSingle(file){
+  const P=await readPixels(file,3000);
+  const had=hasAlphaData(P.id.data);
+  const cleared=clearWhiteBg(P.id,P.W,P.H);
+  if(!had&&!cleared) return null;
+  if(cleared) P.ctx.putImageData(P.id,0,0);
+  const b=bboxOf(P.id.data,P.W,P.H,0,P.W);
+  if(!b) return null;
+  return (await compose(P.c,[b],P.H))[0];
+}
+/* Tamanho inicial: personagem largo (busto) começa menor e apoiado embaixo; alto (corpo inteiro) ocupa a altura */
+function autoZoom(aspect){
+  if(!(aspect>0.62)) return 1;
+  return Math.round(Math.max(.55,Math.min(1,660/(900*aspect)))*20)/20;
+}
+async function placeOne(target,slot,file){
+  $("#p-busy").hidden=false;
+  let blob=file,zoom=1;
+  try{const r=await cleanSingle(file);if(r){blob=r.blob;zoom=autoZoom(r.aspect);}}catch(err){}
+  const ok=await setPortrait(target,slot,blob,zoom);
+  if(target===cur){if(ok&&slot!==lifeState(cur)) previewSlot=slot;renderPortrait();}
+  touch();
 }
 
 /* ---------- Exportar e importar (para levar a ficha a outro aparelho) ---------- */
@@ -1095,20 +1341,24 @@ function dataURLtoBlob(u){
   return new Blob([arr],{type:m[1]});
 }
 function fileSlug(n){return (fold(n).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"ficha").slice(0,40);}
-async function portraitDataFor(s){
+async function picData(p){
   try{
-    if(s.portraitKey){const v=await idbGet(s.portraitKey);if(v&&v.blob) return await blobToDataURL(v.blob);}
-    if(s.portraitId){const r=await fetch(portraitSrc(s));if(r.ok) return await blobToDataURL(await r.blob());}
-    if(s.portrait) return s.portrait;
+    if(p.key){const v=await idbGet(p.key);if(v&&v.blob) return await blobToDataURL(v.blob);}
+    if(p.id){const r=await fetch(picSrc(p));if(r.ok) return await blobToDataURL(await r.blob());}
+    if(p.data) return p.data;
   }catch(e){}
   return "";
 }
 async function exportSheet(){
   const s=clone(cur);
   const out={app:"ficha-dados-graduados",formato:1,exportadoEm:new Date().toISOString(),ficha:s};
-  delete s.id;delete s.portraitId;delete s.portraitKey;delete s.portrait;delete s.example;
-  const pic=await portraitDataFor(cur);
-  if(pic) out.retrato=pic;
+  delete s.id;delete s.example;
+  out.retratos={};
+  for(const sl of SLOTS){
+    const p=s.portraits[sl.k];delete p.data;delete p.id;delete p.key;
+    const d=await picData(cur.portraits[sl.k]);
+    if(d) out.retratos[sl.k]=d;
+  }
   const json=JSON.stringify(out,null,1);
   const filename=fileSlug(cur.name)+".ficha.json";
   if(IN_CLAUDE&&window.claude&&typeof window.claude.use==="function"){
@@ -1136,13 +1386,21 @@ async function importSheet(file){
   const raw=(o&&o.ficha)||o;
   if(!raw||typeof raw!=="object"||(!raw.attrs&&!raw.skills)){openModal("Importar ficha","<p>Não encontrei atributos nem perícias nesse arquivo.</p>",`<button class="btn" data-act="modal-close">Entendi</button>`);return;}
   const s=normalize(raw,false);
-  s.example=false;s.portrait="";s.portraitId="";s.portraitKey="";s.portraitAlpha=false;
+  s.example=false;SLOTS.forEach(sl=>{s.portraits[sl.k]=blankPic();});
   dropUntouchedExample();
   sheets[s.id]=s;cur=s;touched.add(s.id);
   renderAll();touch();
-  const pic=(o&&o.retrato)||raw.portrait||"";
-  const blob=typeof pic==="string"?dataURLtoBlob(pic):null;
-  if(blob){await setPortrait(s,blob,Number(raw.portraitZoom)||1);if(cur===s) renderPortrait();touch();}
+  /* formato novo: retratos {saudavel, machucado, morto}; formato antigo: um retrato só (vira Saudável) */
+  const pics=(o&&o.retratos&&typeof o.retratos==="object")?o.retratos:{saudavel:(o&&o.retrato)||raw.portrait||""};
+  const zooms=raw.portraits||{};
+  let any=false;
+  for(const sl of SLOTS){
+    const blob=typeof pics[sl.k]==="string"?dataURLtoBlob(pics[sl.k]):null;
+    if(!blob) continue;
+    const z=Number((zooms[sl.k]||{}).zoom)||(sl.k==="saudavel"?Number(raw.portraitZoom):0)||1;
+    if(await setPortrait(s,sl.k,blob,z)) any=true;
+  }
+  if(any){if(cur===s) renderPortrait();touch();}
   toast("Ficha “"+(s.name||"Sem nome")+"” importada");
 }
 
